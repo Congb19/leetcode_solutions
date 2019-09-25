@@ -4,20 +4,19 @@
 
 using namespace std;
 
-int numJewelsInStones(string J, string S) {
-    int jl=J.length(), sl=S.length(), r=0;
-    for(int p=0; p<sl; p++) {
-        for(int q=0; q<jl; q++) {
-            if(S[p]==J[q]) {
-                r++;
-                break;
-            }
-        }
-    }
-    return r;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+void deleteNode(ListNode* node) {
+
 }
 
 int main() {
-    cout << numJewelsInStones("aA", "aAAbbbb");
+    ListNode head = [4,5,1,9], int node = 5;
+    cout <<deleteNode("aA", "aAAbbbb");
     return 0;
 }
