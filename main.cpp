@@ -2,48 +2,51 @@
 #include <string>
 #include <stack>
 #include <vector>
+#include <cmath>
+#include <algorithm>
 #define ture true
 
 using namespace std;
 
-int lengthOfLongestSubstring(string s) {
-    if (s=="") return 0;
-    if (s.length()==1) return 1;
-    long long q=0, e;//浮动窗口左右标记
-    long long t=1,res=1;
-    long long cf=0;
-    for (q = 0; q < s.length()-1; ++q) {
-        for (e = q+res; e < s.length(); ++e) {
-            //如果后面要测的e-q+1小于已有的res，则不需要测了 没意义。
-            if (e-q+1<=res) continue;
-            //每一个从q到e的长度>2的子串是否存在出现重复？遍历一下
-            for (long long i = q; i <= e-1; ++i) {
-                for (long long j = i+1; j <= e; ++j) {
-                    if (s[j]==s[i]) {
-                        cf=1;
-                        //重复，不行
-//                        cout<<"i="<<i<<" j="<<j<<" cf="<<cf<<endl;
-                    }
+string longestPalindrome(string s) {
+    string res="";
+    int max=1, l=1, ispd=1, maxi=0;
+    if (s.length()==1) return s;
+    //假设最长回文长度为奇数，假设每一个i为中心，j扩散开来记录。
+    for (int i = 1; i < s.length()-1; ++i) {
+        for (int j = 1; (i+j<s.length())&&(i-j>=0); ++j) {
+            if (s[i+j]!=s[i-j]) {
+                ispd=0;
+                l=2*j-1;
+                if (l>max) {
+                    max = l;
+                    maxi = i;
                 }
             }
-            if (cf==0) {
-                //ok,记录t和res。
-                t=e-q+1;
-                res=res>t?res:t;
-            }
-            else {
-                //滚粗，下一个
-                cf=0;
+            if(ispd==0) {
+                l=1;
+                ispd=1;
+                break;
             }
         }
-
     }
+    //是偶数，则找一下一对一对的扩散开来。
+    
+
+
+
+
+    //生成res
+    int p = (max+1)/2-1;
+    for (int k = s[maxi-p]; k <= s[maxi+p]; ++k) {
+        res+=s[k];
+    }
+
     return res;
 }
 
 int main() {
-//    vector<long long> nu9
-    string s="qqqqeeeewrqqqq";
-    cout << lengthOfLongestSubstring(s) << endl;
+    string s="bcbca";
+    cout << longestPalindrome(s) << endl;
     return 0;
 }
