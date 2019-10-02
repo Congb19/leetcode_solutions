@@ -1,7 +1,3 @@
-//
-// Created by Congb19 on 2019/10/1.
-//
-
 #include <iostream>
 #include <string>
 #include <stack>
