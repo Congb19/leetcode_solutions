@@ -1,3 +1,7 @@
+//
+// Created by Congb on 2019/10/5.
+//
+
 
 #include <iostream>
 #include <string>
@@ -32,5 +36,5 @@ int main() {
     string k="237";
     int h=-59;
     uniqueOccurrences(a);
-    cout<<" "<<endl;
+
 }
