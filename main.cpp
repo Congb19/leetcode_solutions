@@ -18,6 +18,7 @@ int minCostToMoveChips(vector<int>& chips) {
     return min(j,o);
 }
 
+
 int main() {
     clock_t now1=clock();
     vector<int> a={2,2,2,3,3};
