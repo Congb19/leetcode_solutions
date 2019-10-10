@@ -1,3 +1,7 @@
+//
+// Created by Congb on 2019/10/10.
+//
+
 
 #include <iostream>
 #include <string>
@@ -17,15 +21,18 @@ struct ListNode {
 };
 ListNode* swapPairs(ListNode* head) {
     ListNode* res=head;
-    while (head!=NULL&&head->next!=NULL) {
-        cout<<head->val<<" "<<head->next->val<<" ";
+    ListNode* p=head;
+    while (p!=NULL&&p->next!=NULL) {
+        cout<<p->val<<" "<<p->next->val<<" ";
         cout<<"swap"<<endl;
         ListNode temp1=*head, temp2=*(head->next);
         head=&temp2;
+
         head->next=&temp1;
         head=head->next;
         head->next=temp2.next;
         head=temp2.next;
+        p=head;
     }
     return res;
 }
