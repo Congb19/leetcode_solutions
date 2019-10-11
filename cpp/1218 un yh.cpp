@@ -24,6 +24,7 @@ int longestSubsequence(vector<int>& arr, int difference) {
     // 思路1 仍然是暴力
     // 超时了 进行优化，已经进入最长子序列的数给个标记（15000），就不必再从它开始了
     // 还超时 再优化，如果当前的数加dif超出范围了，就直接跳出好了
+    // 还是超时
     vector<int> t;
     vector<int> k=arr;
     for (int i = 0; i < arr.size(); ++i) {
