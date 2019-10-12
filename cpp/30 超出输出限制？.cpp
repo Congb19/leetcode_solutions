@@ -1,3 +1,7 @@
+//
+// Created by Congb on 2019/10/12.
+//
+
 
 #include <iostream>
 #include <string>
@@ -48,13 +52,13 @@ vector<int> findSubstring(string s, vector<string>& words) {
         q.push_back(words[1]+words[0]);
     }
     else do{
-        for (int i = 0; i < words.size(); ++i) {
-            t+=words[i];
-        }
-        cout<<t<<endl;
-        q.push_back(t);
-        t.clear();
-    }while(next_permutation(words.begin(),words.end()));
+            for (int i = 0; i < words.size(); ++i) {
+                t+=words[i];
+            }
+            cout<<t<<endl;
+            q.push_back(t);
+            t.clear();
+        }while(next_permutation(words.begin(),words.end()));
     string temp=s;
     for (int j = 0; j < q.size(); ++j) {
 //        cout<<"j="<<j<<"  qj="<<q[j]<<endl;
