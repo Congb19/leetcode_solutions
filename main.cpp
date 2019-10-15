@@ -17,7 +17,7 @@ struct ListNode {
 };
 void nextPermutation(vector<int>& nums) {
 
-
+    return;
 }
 int main() {
     vector<int> arr={1};
