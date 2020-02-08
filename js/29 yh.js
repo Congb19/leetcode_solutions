@@ -32,7 +32,7 @@ var divide = function(dividend, divisor) {
             res=-res;
         }
         //˼·2
-        
+
     }
     if (res>2147483647) res=2147483647;
     else if (res<-2147483648) res=-2147483648;
