@@ -5,6 +5,7 @@
 var canJump = function(nums) {
     //Ë¼Â·1 Ä£Äâ
     let can=new Array();
+    if (nums.length<=1) return true;
     for (let i=0;i<nums.length;i++) {
         can[i]=false;
     }
@@ -13,10 +14,13 @@ var canJump = function(nums) {
         if (can[i]) {
             for (let j=i;j<=i+nums[i];j++) {
                 can[j]=true;
+                if (j>=nums.length-1) {
+                    return true;
+                }
             }
         }
     }
-    return can[nums.length-1];
+    return false;
 };
 let matrix =
     [[0,1,2,0],[3,4,5,2],[1,3,1,5]];
