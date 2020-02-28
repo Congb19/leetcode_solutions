@@ -94,5 +94,5 @@ var minWindow = function(s, t) {
 };
 let m=7, n=3;
 let S="bbaa"
-, T="aba";
+    , T="aba";
 console.log(minWindow(S, T));
