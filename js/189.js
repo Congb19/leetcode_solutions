@@ -4,6 +4,7 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
+    //采用旋转法
     let n = nums.length;
     while (k>n) {
         k-=n;

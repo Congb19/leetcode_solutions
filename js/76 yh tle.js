@@ -13,13 +13,13 @@ var minWindow = function(s, t) {
     let min=s.length;
     let len=t.length;
     let test=new Array(s.length);
-    for (let i=0;i<s.length;i++) {
+    for (let i=0;i<s.length;++i) {
         test[i]=0;
     }
     while (r<s.length) {
         // console.log(l ,r);
         let flag=false;
-        for (let i=0;i<t.length;i++) {
+        for (let i=0;i<t.length;++i) {
             for (let j=l;j<=r;j++) {
                 if (!flag&&s[j]===t[i]&&test[j]===0) {
                     flag=true;
@@ -35,7 +35,7 @@ var minWindow = function(s, t) {
                 flag=false;
             }
         }
-        for (let i=0;i<s.length;i++) {
+        for (let i=0;i<s.length;++i) {
             test[i]=0;
         }
         if (flag) {
@@ -50,7 +50,7 @@ var minWindow = function(s, t) {
             //Ëõ×ó±ß
             while (l<=r-t.length+1) {
                 // console.log("l, r = ", l ,r);
-                for (let i=0;i<t.length;i++) {
+                for (let i=0;i<t.length;++i) {
                     for (let j=l;j<=r;j++) {
                         if (!flag&&s[j]===t[i]&&test[j]===0) {
                             // console.log("got");
@@ -67,7 +67,7 @@ var minWindow = function(s, t) {
                         flag=false;
                     }
                 }
-                for (let i=0;i<s.length;i++) {
+                for (let i=0;i<s.length;++i) {
                     test[i]=0;
                 }
                 // console.log(flag)
@@ -81,14 +81,14 @@ var minWindow = function(s, t) {
                     flag=false;
                 }
                 else {
-                    l--;
+                    --l;
                     break;
                 }
-                l++;
+                ++l;
             }
         }
         // l=0;
-        r++;
+        ++r;
     }
     return res;
 };
