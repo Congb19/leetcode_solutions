@@ -4,6 +4,7 @@
  * @return {number[]}
  */
 var findOrder = function(numCourses, prerequisites) {
+    //思路2 入度
     let res= new Array(numCourses);
     let k=0;
     if (numCourses===1) {
