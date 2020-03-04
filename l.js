@@ -46,8 +46,41 @@
 // a=b;
 
 
-const dp = [...Array(3)].map( (x)=>x=1);
-const k = Array(3).map( (x)=>x=1);
-// let k=dp;
-dp[0]=2;
-console.log(dp, k);
+// const dp = [...Array(3)].map( (x)=>x=1);
+// const k = Array(3).map( (x)=>x=1);
+// // let k=dp;
+// dp[0]=2;
+// console.log(dp, k);
+
+
+
+// const foo=function () {
+//     this.x="1";
+// };
+// // foo.name="1";
+//
+// const bac=new foo();
+// // bac.name="2";
+//
+// const bar = foo;
+// bar.x="2";
+//
+// const baz = Object.create(foo);
+// // baz.name="3";
+//
+// console.log(foo, typeof foo);
+// console.log(bac, typeof bac);
+// console.log(bar, typeof bar);
+// console.log(baz, typeof baz);
+
+
+
+let s="nihao";
+s[2]='q';
+console.log(s);
+
+
+s=s+"123"
+
+
+console.log(Math.floor(Math.random()*100));

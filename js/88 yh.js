@@ -6,6 +6,7 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
+    //思路1 边合并边排序 挺快的
     let res = new Array();
     let i = 0, j = 0;
     for (let k = 0; k < m + n; k++) {
@@ -29,7 +30,7 @@ var merge = function(nums1, m, nums2, n) {
     for (let k = 0; k < m + n; k++) {
         nums1[k]=res[k];
     }
-    // return res;
+    return res;
 }
 let nums1 = [1,2,3,0,0,0], m = 3;
 let nums2 = [2,5,6], n = 3;
