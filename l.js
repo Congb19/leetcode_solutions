@@ -75,12 +75,14 @@
 
 
 
-let s="nihao";
-s[2]='q';
-console.log(s);
+let s="nininihao";
+// s.reverse();
+s.charAt(2);
+s=s.substr(0,2)+"p"+s.substr(2+1);
+console.log(s, s.charAt(2));
 
 
-s=s+"123"
+// s=s+"123"
 
 
-console.log(Math.floor(Math.random()*100));
+// console.log(Math.floor(Math.random()*100));

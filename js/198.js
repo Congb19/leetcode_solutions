@@ -3,7 +3,6 @@
  * @return {number}
  */
 var rob = function(nums) {
-    // let res=0;
     let n=nums.length;
     if (n===0) {
         return 0;
@@ -26,8 +25,6 @@ var rob = function(nums) {
         dp[i]+=nums[i];
     }
     return dp[n-1]>dp[n-2]?dp[n-1]:dp[n-2];
-
-    // return res;
 };
 let nums= [2,7,9,3,1], k=2;
 let s="ABC";
