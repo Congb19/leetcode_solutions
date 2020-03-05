@@ -15,7 +15,7 @@ var countSmaller = function(nums) {
     let tmp=new Array();
     let p=function (idd, valuee) {
         this.value=valuee,
-        this.id=idd
+            this.id=idd
     }
     for (let j=0;j<nums.length;j++) {
         tmp.push(new p(j, nums[j]));
