@@ -75,14 +75,36 @@
 
 
 
-let s="nininihao";
-// s.reverse();
-s.charAt(2);
-s=s.substr(0,2)+"p"+s.substr(2+1);
-console.log(s, s.charAt(2));
+// let s="nininihao";
+// // s.reverse();
+// s.charAt(2);
+// s=s.substr(0,2)+"p"+s.substr(2+1);
+// console.log(s, s.charAt(2));
 
 
 // s=s+"123"
 
 
 // console.log(Math.floor(Math.random()*100));
+
+
+
+
+function getName() {
+    // console.log(this.name);
+    return this.name;
+}
+var a={name:"qwe"};
+var name=getName();
+console.log(a.name, typeof a.name, a.name==='qwe');
+console.log(name, typeof name, name==='');
+// 要么如果getname是a的方法那a.getname，要么把a当参数传入return a.name
+// ???
+
+
+
+
+
+
+
+
