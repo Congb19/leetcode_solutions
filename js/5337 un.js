@@ -46,7 +46,6 @@ var findTheLongestSubstring = function(s) {
     if (s[0]==='i') dp[0][0][2]++;
     if (s[0]==='o') dp[0][0][3]++;
     if (s[0]==='u') dp[0][0][4]++;
-
     for (let i=0;i<n;i++) {
         for (let j=i;j<n;j++) {
             if (j===0) continue;
@@ -73,6 +72,10 @@ var findTheLongestSubstring = function(s) {
         }
     }
     return res;
+    //思路3 滑动窗口
+
+
+
 };
 
 
