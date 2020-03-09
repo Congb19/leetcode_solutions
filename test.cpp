@@ -1,54 +1,34 @@
 //
-// Created by Congb on 2019/9/25.
+// Created by Congb19 on 2019/9/27.
 //
+
 #include <iostream>
 #include <string>
 #include <stack>
+#include <vector>
 #define ture true
 
 using namespace std;
-string removeOuterParentheses(string S) {
-    int l=0, r=0;
-    int q=0, e=0, d=0;
-    for (int i = 0; i < S.length(); ++i) {
-        if (l>0 && l==r) {
-            e=i;
-            S[q]='d'; S[e]='d';
-            q=i+1;
-            e=i+1;
-            d+=2;
-            l=0;
-            r=0;
-        }
-        else {
-            if (S[i]=='(') {
-                l++;
+
+vector<int> twoSum(vector<int>& nums, int target) {
+    vector<int> res(2);
+    for (int i = 0; i < nums.size()-1; ++i) {
+        for (int j = i+1; j < nums.size(); ++j) {
+            if (nums[j]+nums[i]==target) {
+                res[0]=i;
+                res[1]=j;
+                cout<<i<<" "<<j<<endl;
+                return res;
             }
-            else if(S[i]==')') r++;
         }
     }
-    string k=S; int p=0;
-    for (int j = 0; j < S.length()-d; ++j) {
-        if (S[p]!='d') {
-            k[j]=S[j+p];
-        }
-        else {
-            p++;
-            continue;
-        }
-    }
-//    for (int m = S.length()-d; m < S.length(); ++m) {
-//        k[m]='\0';
-//    }
-    return k;
-}
-int main() {
-    string S;
-    cin>>S;
-    cout << removeOuterParentheses(S) << endl;
-    return 0;
+    return res;
 }
 
-//0011
-//1010
-//1001
+int main() {
+    //string A[26] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+    vector<int> nums = {2,7,11,15};
+    int target=9;
+    twoSum(nums, target);
+    return 0;
+}
