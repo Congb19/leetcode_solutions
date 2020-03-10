@@ -9,19 +9,15 @@ function ListNode(val) {
  * @return {ListNode}
  */
 var reverseList = function(head) {
-    let ori=head;
-    let tmp=head.next;
-    while (tmp.next!=null) {
-        let ttmp=tmp;
-        tmp=tmp.next;
-        head.next.next=head;
-        if (head===ori) head.next=null;
-        head=ttmp;
-        // console.log(head.val);
+    let rev = (node) => {
+        if (node===null||node.next===null) return node;
+        let p = new ListNode(node.next.val);
+        p.next=node.next;
+        node.next.next=node;
+        node.next=null;
+        return p;
     }
-    tmp.next=head;
-    head=tmp;
-    return head;
+    return rev(head);
 };
 
 let p0=new ListNode(1);
