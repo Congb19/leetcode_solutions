@@ -1,25 +1,37 @@
 /**
- * @param {number[]} nums
- * @return {number}
+ * // Definition for a Node.
+ * function Node(val, next, random) {
+ *    this.val = val;
+ *    this.next = next;
+ *    this.random = random;
+ * };
  */
-var lengthOfLIS = function(nums) {
-    let res=0;
-    let n=nums.length;
-    if (n===0) return 0;
-    if (n===1) return 1;
-    let dp=[...Array(n)].map(()=>0);
-    dp[0]=1;
-    for (let i = 1; i < n; i++) {
-        let max=0;
-        for (let j = 0; j < i; j++) {
-            if (dp[j]>max && nums[j]<nums[i]) max=dp[j];
+/**
+ * @param {Node} head
+ * @return {Node}
+ */
+var copyRandomList = function(head) {
+    if (head===null) return null;
+    let hash=[...Array()];
+    function j(a,b) {
+        this.a = a;
+        this.b = b;
+    }
+    let dd = (node, id) => {
+        if (node===null) return;
+        hash.push(new j(node, new Node(node.val)));
+        dd(node.next, id+1);
+    }
+    dd(head, 0);
+    // console.log(hash);
+    for (let i=0;i<hash.length;i++) {
+        if (i < hash.length - 1) hash[i].b.next = hash[i+1].b;
+        for (let j = 0; j < hash.length; j++) {
+            if (hash[j].a===hash[i].a.random) {
+                hash[i].b.random=hash[j].b;
+                break;
+            }
         }
-        dp[i]=max+1;
     }
-    // console.log(dp);
-    for (let i = 1; i < n; i++) {
-        if (dp[i]>res) res=dp[i];
-    }
-    return res;
+    return hash[0].b;
 };
-console.log(lengthOfLIS([10,9,2,5,3,7,101,18]));
