@@ -89,22 +89,21 @@
 
 
 
-
-function getName() {
-    // console.log(this.name);
-    return this.name;
-}
-var a={name:"qwe"};
-var name=getName();
-console.log(a.name, typeof a.name, a.name==='qwe');
-console.log(name, typeof name, name==='');
-// 要么如果getname是a的方法那a.getname，要么把a当参数传入return a.name
-// ???
+//
+// function getName() {
+//     // console.log(this.name);
+//     return this.name;
+// }
+// var a={name:"qwe"};
+// var name=getName();
+// console.log(a.name, typeof a.name, a.name==='qwe');
+// console.log(name, typeof name, name==='');
 
 
 
 
 
 
-
-
+let a=[1,2,3];
+let b=a.concat(1,2,[5,6,7],4);
+console.log(b);
