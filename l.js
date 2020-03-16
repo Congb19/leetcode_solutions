@@ -103,7 +103,22 @@
 
 
 
+//
+// let a=[1,2,3];
+// let b=a.concat(1,2,[5,6,7],4);
+// console.log(b);
 
-let a=[1,2,3];
-let b=a.concat(1,2,[5,6,7],4);
-console.log(b);
+// let test1 = Date.now();
+// let test2 = Date.now();
+// setTimeout(function () {
+//     test2 = Date.now();
+//     console.log(test2-test1);
+// }, 2200);
+
+let test3 = new Date();
+console.log(test3.toLocaleString())
+console.log(test3.toString())
+console.log(test3.toDateString())
+test3.setTime(-100000000);
+console.log(test3.toString())
+console.log(test3.getDay())
