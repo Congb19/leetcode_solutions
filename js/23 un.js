@@ -19,38 +19,20 @@ function ListNode(val) {
 var mergeKLists = function(lists) {
     let res=new ListNode();
     let p=res;
-    let min=lists[0].val, minid=0;
-    //找到总长度
-    let sum=0;
-    let test=lists;
-
-    console.log(lists);
-    console.log(test);
-    for (let i=0;i<test.length;i++) {
-        while (test[i]!=null) {
-            sum++;
-            test[i]=test[i].next;
+    let arr = [...Array()];
+    for (let i=0; i<lists.length; i++) {
+        while (lists[i]!==null) {
+            arr.push(lists[i].val);
+            lists[i]=lists[i].next;
         }
     }
-    console.log(sum);
-    //go
-    for (let k=0;k<sum;k++) {
-        for (let i=0;i<lists.length;i++) {
-            if (lists[i]!==null) {
-                if (min>=lists[i].val) {
-                    min=lists[i].val;
-                    minid=i;
-                }
-            }
-            p.next=new ListNode(lists[minid]);
-            p=p.next;
-            console.log("p =", p.val)
-            lists[minid]=lists[minid].next;
-        }
-    }
-
-
-    return p;
+    arr.sort((a,b)=>a-b);
+    // console.log(arr);
+    arr.forEach(function (value, index, array) {
+        p.next=new ListNode(value);
+        p=p.next;
+    })
+    return res.next;
 };
 let p1=new ListNode(1);
 p1.next=new ListNode(4);
