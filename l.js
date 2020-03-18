@@ -122,3 +122,4 @@ console.log(test3.toDateString())
 test3.setTime(-100000000);
 console.log(test3.toString())
 console.log(test3.getDay())
+console.log(()=>0);
