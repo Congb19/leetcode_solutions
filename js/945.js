@@ -3,6 +3,7 @@
  * @return {number}
  */
 var minIncrementForUnique = function(A) {
+    let B=[...A];
     if (A.length<=1) return 0;
     A.sort((a,b)=>a-b);
     let res=0;
