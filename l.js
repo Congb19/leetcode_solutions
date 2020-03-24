@@ -53,26 +53,40 @@
 // console.log(dp, k);
 
 
+function object(o) {
+    function F() {
 
-// const foo=function () {
-//     this.x="1";
-// };
-// // foo.name="1";
-//
+    }
+    F.prototype=o;
+    return new F();
+}
+const foo=function () {
+    this.x="1";
+};
+// foo.name="1";
+
 // const bac=new foo();
 // // bac.name="2";
 //
 // const bar = foo;
 // bar.x="2";
-//
-// const baz = Object.create(foo);
-// // baz.name="3";
-//
-// console.log(foo, typeof foo);
+
+const baz = Object.create(foo
+    // {
+    //     name: {
+    //         value: "123",
+    //     },
+    //     // id: "23",
+    // }
+);
+const bad = object(foo);
+// baz.name="3";
+
+console.log(foo, typeof foo);
 // console.log(bac, typeof bac);
 // console.log(bar, typeof bar);
-// console.log(baz, typeof baz);
-
+console.log(baz, typeof baz);
+console.log(bad, typeof bad);
 
 
 // let s="nininihao";
@@ -115,11 +129,13 @@
 //     console.log(test2-test1);
 // }, 2200);
 
-let test3 = new Date();
-console.log(test3.toLocaleString())
-console.log(test3.toString())
-console.log(test3.toDateString())
-test3.setTime(-100000000);
-console.log(test3.toString())
-console.log(test3.getDay())
-console.log(()=>0);
+// let test3 = new Date();
+// console.log(test3.toLocaleString())
+// console.log(test3.toString())
+// console.log(test3.toDateString())
+// test3.setTime(-100000000);
+// console.log(test3.toString())
+// console.log(test3.getDay())
+// console.log(()=>0);
+
+
