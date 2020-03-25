@@ -1,4 +1,4 @@
-/**
+﻿/**
  * // Definition for a Node.
  * function Node(val, left, right, next) {
  *    this.val = val === undefined ? null : val;

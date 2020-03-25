@@ -14,11 +14,11 @@ struct ListNode {
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };
-//������Ǹ�λ������߿�ʼ���������λ�ˣ������ұ߽�һλ���Լ�-=10��
+//最左边是个位，从左边开始看，如果进位了，就向右边进一位，自己-=10；
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 
-    //˼·1 �����
-    //��Ҫ�жϣ����һ�θ���ʱ�Ƿ��н�λ�����û�У�ɾ������Ǹ��ڵ㣬����У�����ɾ��
+    //思路1 简单相加
+    //需要判断：最后一次复制时是否有进位，如果没有，删掉多的那个节点，如果有，不用删。
     int plus = 0; int del = 1;
     ListNode *p = new ListNode(0);
     ListNode *p1 = p;
@@ -77,7 +77,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         }
         p2->next=NULL;
     }
-    //˼·2 ����������������±�
+    //思路2 存起来相加再生成新表
 //    long long t = 1;
 //    long long res=0, r1=0, r2=0;
 //    while (l1!=NULL) {

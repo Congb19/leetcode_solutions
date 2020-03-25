@@ -1,4 +1,4 @@
-//
+ï»¿//
 // Created by Congb on 2019/9/30.
 //
 
@@ -23,7 +23,7 @@ int romanToInt(string s) {
         }
     }
     for (int k = 0; k < s.length(); ++k) {
-        if (k+1<s.length()&&t[k]<t[k+1]) { //´Ë´¦ÓÃÁË¶ÌÂ·
+        if (k+1<s.length()&&t[k]<t[k+1]) { //æ­¤å¤„ç”¨äº†çŸ­è·¯
             res+=t[k+1]-t[k];
             k++;
         }

@@ -1,4 +1,4 @@
-//
+ï»¿//
 // Created by Congb19 on 2019/10/4.
 //
 
@@ -19,7 +19,7 @@ struct ListNode {
 };
 ListNode* removeNthFromEnd(ListNode* head, int n) {
 
-    //Ë¼Â·1  À´×ÔÆÀÂÛÇø Ê¹ÓÃË«Ö¸Õë¡£
+    //æ€è·¯1  æ¥è‡ªè¯„è®ºåŒº ä½¿ç”¨åŒæŒ‡é’ˆã€‚
     ListNode *f=head, *s=head;
     for (int i = 0; i < n; ++i) {
         f=f->next;

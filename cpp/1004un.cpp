@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by Congb on 2019/9/26.
 //
 
@@ -14,7 +14,7 @@ int longestOnes(vector<int>& A, int K) {
     int z=0;
     int max=0;
     vector<int> B = A;
-    //˼·1 ����ÿһ����1��ʼ�ģ����߿�ͷ��0����ʼ�����飬ÿ���ֵ�K+1��0ǰ���ͣ�¼�����
+    //思路1 遍历每一个从1开始的（或者开头的0）开始的数组，每出现第K+1个0前面就停下计数。
 //    for (int i = 0; i < A.size(); ++i) {
 //        for (int j = i; j < A.size(); ++j) {
 //            if (z==K+1) {
@@ -32,7 +32,7 @@ int longestOnes(vector<int>& A, int K) {
 //            }
 //        }
 //    }
-    //˼·2 ֱ�Ӹ���һ������ ������1 Ȼ���㳤�ȡ����������ʱ�ˡ�̫�����ˡ�
+    //思路2 直接复制一个数组 变三个1 然后算长度。这个方法超时了。太暴力了。
     //test
 //    B[0]=1;
 //    for (int i = 0; i < A.size(); ++i) {
@@ -45,7 +45,7 @@ int longestOnes(vector<int>& A, int K) {
 //    cout<<"\nbsize"<<B.size()<<endl;
     //go
 //    for (int i = 0; i < B.size(); ++i) {
-//        //�ҵ���i��ʼ��ǰ����0����1��
+//        //找到从i开始的前三个0，置1。
 //        for (int j = i; j < B.size(); ++j) {
 //            if (B[j]==0) {
 //                if (z<K) {
@@ -61,8 +61,8 @@ int longestOnes(vector<int>& A, int K) {
 //                continue;
 //            }
 //        }
-//        //һ�ֱ��꣬��һ�����1�Ӵ����ȣ���¼��max�
-//        //���������
+//        //一轮变完，看一下最长的1子串长度，记录在max里。
+//        //先输出康康
 ////        cout<<"\n i="<<i<<endl;
 ////        for (int i = 0; i < B.size(); ++i) {
 ////            cout<<B[i]<<" ";
@@ -82,11 +82,11 @@ int longestOnes(vector<int>& A, int K) {
 //                }
 //            }
 //        }
-//        //���ã�
+//        //重置！
 //        B=A;
 //    }
 
-    //˼·3
+    //思路3
     int q=0, e=0;
     for (int i = 0; i < A.size(); ++i) {
         q=i;

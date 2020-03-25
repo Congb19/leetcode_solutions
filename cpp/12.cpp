@@ -1,4 +1,4 @@
-//
+ï»¿//
 // Created by Congb on 2019/9/30.
 //
 
@@ -14,14 +14,14 @@
 using namespace std;
 string intToRoman(int num) {
     string res="";
-    vector<char> t;//µ¹¹ıÀ´´æ·Å
-    int d=1;//±íÊ¾½×Êı
+    vector<char> t;//å€’è¿‡æ¥å­˜æ”¾
+    int d=1;//è¡¨ç¤ºé˜¶æ•°
     if (num>=1000) d=4;
     else if(num>=100) d=3;
     else if(num>=10) d=2;
     else d=1;
     char a[7]={'I','V','X','L','C','D','M'};
-    // Ë¼Â·1 Ö±½Ó³ı·¨£¬¿´Ä©Î²£¬·ÖÇé¿ö¼Ó×ÖÄ¸¼´¿É
+    // æ€è·¯1 ç›´æ¥é™¤æ³•ï¼Œçœ‹æœ«å°¾ï¼Œåˆ†æƒ…å†µåŠ å­—æ¯å³å¯
     for (int i = 0; i < d*2; i+=2) {
         if (num%10==9) {
             t.push_back(a[i+2]);

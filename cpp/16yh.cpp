@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <string>
 #include <stack>
 #include <vector>
@@ -18,7 +18,7 @@ int threeSumClosest(vector<int>& nums, int target) {
     int the;
     int res=max(abs(3*nums[nums.size()-1]), abs(3*nums[0]));
 
-//    Ë¼Â·1 ¼Ù¶¨i<j<k¡£¹Ì¶¨Á½¸ö£¬Ê£ÏÂÒ»¸ö±ØÈ»ÄÜ×é³Éi+j+kÒ»¸ö´óÓÚ0Ò»¸öÐ¡ÓÚ0,¼ÇÂ¼ÕâÒ»×éijk¡£
+//    æ€è·¯1 å‡å®ši<j<kã€‚å›ºå®šä¸¤ä¸ªï¼Œå‰©ä¸‹ä¸€ä¸ªå¿…ç„¶èƒ½ç»„æˆi+j+kä¸€ä¸ªå¤§äºŽ0ä¸€ä¸ªå°äºŽ0,è®°å½•è¿™ä¸€ç»„ijkã€‚
 //    for (int i = 0; i < nums.size()-2; ++i) {
 //        for (int j = i+1; j < nums.size()-1; ++j) {
 //            for (int k = j+1; k < nums.size(); ++k) {
@@ -60,7 +60,7 @@ int threeSumClosest(vector<int>& nums, int target) {
 //        }
 //        cout<<"now res="<<res<<endl;
 //    }
-    //Ë¼Â·2 ÎÒÈÈ°®±©Á¦¡£
+    //æ€è·¯2 æˆ‘çƒ­çˆ±æš´åŠ›ã€‚
     for (int i = 0; i < nums.size()-2; ++i) {
         for (int j = i+1; j < nums.size()-1; ++j) {
             for (int k = j+1; k < nums.size(); ++k) {

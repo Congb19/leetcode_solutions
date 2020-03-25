@@ -1,4 +1,4 @@
-//
+ï»¿//
 // Created by Congb on 2019/9/30.
 //
 
@@ -15,7 +15,7 @@ using namespace std;
 string longestCommonPrefix(vector<string>& strs) {
     if (strs.size()==0) return "";
     string res="";
-    //Ë¼Â·1 ±©Á¦Ò»Î»Ò»Î»¶Ô±È ¼´Ìâ½âÀïµÄ×İÏòÉ¨Ãè n*min(m)
+    //æ€è·¯1 æš´åŠ›ä¸€ä½ä¸€ä½å¯¹æ¯” å³é¢˜è§£é‡Œçš„çºµå‘æ‰«æ n*min(m)
     char t=strs[0][0];
     int minl=strs[0].length();
     int brk=0;
@@ -23,10 +23,10 @@ string longestCommonPrefix(vector<string>& strs) {
         if(strs[k].length()<minl) minl=strs[k].length();
     }
     int ws=minl;
-    for (int i = 0; i < minl; ++i) { //i±íÊ¾Î»Êı¡£
+    for (int i = 0; i < minl; ++i) { //iè¡¨ç¤ºä½æ•°ã€‚
         t=strs[0][i];
         if(!brk)
-            for (int j = 0; j < strs.size(); ++j) { //j±éÀú
+            for (int j = 0; j < strs.size(); ++j) { //jéå†
                 if (strs[j][i]!=t) {
                     ws=i<ws?i:ws;
                     brk=1;
@@ -37,7 +37,7 @@ string longestCommonPrefix(vector<string>& strs) {
     for (int l = 0; l < ws; ++l) {
         res+=strs[0][l];
     }
-    //Ë¼Â·2
+    //æ€è·¯2
     return res;
 }
 

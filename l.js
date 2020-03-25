@@ -45,23 +45,19 @@
 // console.log(a.n);
 // a=b;
 
-
 // const dp = [...Array(3)].map( (x)=>x=1);
 // const k = Array(3).map( (x)=>x=1);
 // // let k=dp;
 // dp[0]=2;
 // console.log(dp, k);
 
-
 function object(o) {
-    function F() {
-
-    }
-    F.prototype=o;
-    return new F();
+	function F() {}
+	F.prototype = o;
+	return new F();
 }
-const foo=function () {
-    this.x="1";
+const foo = function() {
+	this.x = "1";
 };
 // foo.name="1";
 
@@ -71,13 +67,14 @@ const foo=function () {
 // const bar = foo;
 // bar.x="2";
 
-const baz = Object.create(foo
-    // {
-    //     name: {
-    //         value: "123",
-    //     },
-    //     // id: "23",
-    // }
+const baz = Object.create(
+	foo
+	// {
+	//     name: {
+	//         value: "123",
+	//     },
+	//     // id: "23",
+	// }
 );
 const bad = object(foo);
 // baz.name="3";
@@ -88,20 +85,15 @@ console.log(foo, typeof foo);
 console.log(baz, typeof baz);
 console.log(bad, typeof bad);
 
-
 // let s="nininihao";
 // // s.reverse();
 // s.charAt(2);
 // s=s.substr(0,2)+"p"+s.substr(2+1);
 // console.log(s, s.charAt(2));
 
-
 // s=s+"123"
 
-
 // console.log(Math.floor(Math.random()*100));
-
-
 
 //
 // function getName() {
@@ -112,10 +104,6 @@ console.log(bad, typeof bad);
 // var name=getName();
 // console.log(a.name, typeof a.name, a.name==='qwe');
 // console.log(name, typeof name, name==='');
-
-
-
-
 
 //
 // let a=[1,2,3];
@@ -138,6 +126,6 @@ console.log(bad, typeof bad);
 // console.log(test3.getDay())
 // console.log(()=>0);
 
-
 //vscode git test
 
+console.log("你好");
