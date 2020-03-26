@@ -51,40 +51,6 @@
 // dp[0]=2;
 // console.log(dp, k);
 
-function object(o) {
-	function F() {}
-	F.prototype = o;
-	return new F();
-}
-const foo = function() {
-	this.x = "1";
-};
-// foo.name="1";
-
-// const bac=new foo();
-// // bac.name="2";
-//
-// const bar = foo;
-// bar.x="2";
-
-const baz = Object.create(
-	foo
-	// {
-	//     name: {
-	//         value: "123",
-	//     },
-	//     // id: "23",
-	// }
-);
-const bad = object(foo);
-// baz.name="3";
-
-console.log(foo, typeof foo);
-// console.log(bac, typeof bac);
-// console.log(bar, typeof bar);
-console.log(baz, typeof baz);
-console.log(bad, typeof bad);
-
 // let s="nininihao";
 // // s.reverse();
 // s.charAt(2);
@@ -128,4 +94,39 @@ console.log(bad, typeof bad);
 
 //vscode git test
 
-console.log("你好");
+function object(o) {
+	function F() {}
+	F.prototype = o;
+	return new F();
+}
+const foo = function() {
+	this.x = "1";
+};
+// foo.name="1";
+
+// const bac=new foo();
+// // bac.name="2";
+//
+// const bar = foo;
+// bar.x="2";
+
+const baz = Object.create(
+	foo
+	// {
+	//     name: {
+	//         value: "123",
+	//     },
+	//     // id: "23",
+	// }
+);
+const bad = object(foo);
+// baz.name="3";
+
+console.log(foo, typeof foo);
+// console.log(bac, typeof bac);
+// console.log(bar, typeof bar);
+console.log(baz, typeof baz);
+console.log(bad, typeof bad);
+
+console.log("大家好");
+let asd = () => {};
