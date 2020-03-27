@@ -94,14 +94,14 @@
 
 //vscode git test
 
-function object(o) {
-	function F() {}
-	F.prototype = o;
-	return new F();
-}
-const foo = function() {
-	this.x = "1";
-};
+// function object(o) {
+// 	function F() {}
+// 	F.prototype = o;
+// 	return new F();
+// }
+// const foo = function() {
+// 	this.x = "1";
+// };
 // foo.name="1";
 
 // const bac=new foo();
@@ -110,23 +110,46 @@ const foo = function() {
 // const bar = foo;
 // bar.x="2";
 
-const baz = Object.create(
-	foo
-	// {
-	//     name: {
-	//         value: "123",
-	//     },
-	//     // id: "23",
-	// }
-);
-const bad = object(foo);
-// baz.name="3";
+// const baz = Object.create(
+// 	foo
+// 	// {
+// 	//     name: {
+// 	//         value: "123",
+// 	//     },
+// 	//     // id: "23",
+// 	// }
+// );
+// const bad = object(foo);
+// // baz.name="3";
 
-console.log(foo, typeof foo);
-// console.log(bac, typeof bac);
-// console.log(bar, typeof bar);
-console.log(baz, typeof baz);
-console.log(bad, typeof bad);
+// console.log(foo, typeof foo);
+// // console.log(bac, typeof bac);
+// // console.log(bar, typeof bar);
+// console.log(baz, typeof baz);
+// console.log(bad, typeof bad);
 
-console.log("大家好");
-let asd = () => {};
+// console.log("大家好");
+// let asd = () => {};
+
+// let timeoutId = setTimeout(() => {
+// 	console.log(123);
+// }, 1000);
+// clearTimeout(timeoutId);
+// alert(123);
+
+// var readline = require("readline");
+// const rl = readline.createInterface({
+// 	input: process.stdin,
+// 	output: process.stdout
+// });
+// rl.on("line", function(line) {
+// 	var tokens = line.split(" ");
+// 	console.log(parseInt(tokens[0]) + parseInt(tokens[1]));
+// });
+
+// while ((line = readline())) {
+// 	var lines = line.split(" ");
+// 	var a = parseInt(lines[0]);
+// 	var b = parseInt(lines[1]);
+// 	print(a + b);
+// }
