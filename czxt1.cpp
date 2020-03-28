@@ -2,26 +2,26 @@
 // Created by Congb19 on 2019/10/22.
 //
 
-#include<iostream>
-#include<cstdio>
-#include<windows.h>
+#include <iostream>
+#include <cstdio>
+#include <windows.h>
 #include <stdlib.h>
 #include <unistd.h>
-int main() {
+int main()
+{
     STARTUPINFO si;
-    memset(&si,0,sizeof(si));
-    si.cb=sizeof(si);
-    si.dwFlags=STARTF_USESHOWWINDOW;
-    si.wShowWindow=TRUE;
+    memset(&si, 0, sizeof(si));
+    si.cb = sizeof(si);
+    si.dwFlags = STARTF_USESHOWWINDOW;
+    si.wShowWindow = TRUE;
 
     PROCESS_INFORMATION pi;
 
-    char szApplicationName[N]=TEXT("c:\\windows\\system32\\mspaint.exe");//Í¨¹ýµØÖ·µ÷ÓÃ½ø³Ì
-    char szCommandLine[N]="mspaint";//Í¨¹ýÃüÁîÐÐµ÷ÓÃ½ø³Ì
+    char szApplicationName[N] = TEXT("c:\\windows\\system32\\mspaint.exe"); //Í¨ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
+    char szCommandLine[N] = "mspaint";                                      //Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ã½ï¿½ï¿½ï¿½
 
-    BOOL bRet=CreateProcess(szApplicationName,NULL,NULL,NULL,FALSE,CREATE_NEW_CONSOLE,NULL,NULL,&si,&pi);
-    int nError=GetLastError();
-
+    BOOL bRet = CreateProcess(szApplicationName, NULL, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi);
+    int nError = GetLastError();
 
     return 0;
 }

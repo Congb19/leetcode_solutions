@@ -3,25 +3,59 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Title</title>
-		<script src="test.js"></script>
+		<!-- <script src="test.js"></script> -->
 		<script src="l.js"></script>
 		<style>
-			div {
-				position: fixed;
-				top: 200px;
-				left: 200px;
+			.class1 {
+				/* position: absolute; */
+				margin: 200px;
 				width: 20px;
-				height: 20px;
+				height: 200px;
 				border-width: 200px;
 				border-style: solid;
-				border-color: red transparent rgb(20, 230, 142) transparent;
+				border-color: rgb(255, 164, 187) transparent rgb(20, 230, 142)
+					transparent;
 				/* border-left: solid 200px red;
 				border-top: solid 200px red; */
+			}
+			.father {
+				padding: 20px;
+				background-color: gray;
+			}
+			.child {
+				width: 200px;
+				background-color: green;
+			}
+			.child1 {
+				height: 200px;
+			}
+			.child2 {
+				height: 200px;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div></div>
+		<div id="test1" class="class1" data-gogo="123"></div>
+		<div class="father">
+			<div class="child child1"></div>
+			<div class="child child2"></div>
+		</div>
+		<script>
+			let k = document.getElementsByClassName("class1");
+			let t = document.getElementById("test1");
+			let p = document.querySelector("#test1");
+			console.log(p);
+			console.log(p.dataset.gogo, t.dataset.gogo);
+			k[0].classList.add("cool");
+			console.log(k[0].classList.contains("test1"));
+			console.log(k[0]);
+			setTimeout(function() {
+				// p.focus();
+				// focus(p);
+				// p.scrollIntoView(true);
+			}, 1000);
+			console.log(document.hasFocus());
+		</script>
 	</body>
 </html>
