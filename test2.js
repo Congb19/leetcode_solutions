@@ -13,3 +13,4 @@ while ((line = readline())) {
 		print(arr[a]);
 	}
 }
+// https://exam.nowcoder.com/cts/17067885/summary?id=9A8DACD9DA155A9A

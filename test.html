@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
 		<title>Title</title>
 		<!-- <script src="test.js"></script> -->
 		<script src="l.js"></script>
 		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
 			.class1 {
 				/* position: absolute; */
 				margin: 200px;
@@ -18,34 +22,80 @@
 				/* border-left: solid 200px red;
 				border-top: solid 200px red; */
 			}
+			.class2 {
+				box-sizing: border-box;
+				display: inline-block;
+				width: 200px;
+				height: 200px;
+				padding: 20px;
+				background-color: red;
+			}
 			.father {
+				position: relative;
+				box-sizing: border-box;
+				width: 100%;
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
 				padding: 20px;
 				background-color: gray;
 			}
 			.child {
-				width: 200px;
+				display: inline-block;
+				margin: 20px;
+				padding: 20px;
 				background-color: green;
 			}
 			.child1 {
-				height: 200px;
+				min-width: 200px;
+				max-width: 200px;
 			}
 			.child2 {
-				height: 200px;
+				flex-grow: 1;
+			}
+			.child3 {
+				min-width: 200px;
+				max-width: 200px;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div id="test1" class="class1" data-gogo="123"></div>
+		<div id="test1" class="class1" data-gogo="123">
+			<div>2</div>
+		</div>
+		<div class="class2">
+			<span style="display: inline-block; max-width: 100%;"
+				>你好啊你好啊你好啊你好啊</span
+			>
+		</div>
 		<div class="father">
-			<div class="child child1"></div>
-			<div class="child child2"></div>
+			<div class="child child1">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+				molestiae labore debitis aperiam iste dolorem error et hic. Id
+				ea porro aperiam neque beatae ducimus, aspernatur magni saepe
+				consectetur architecto.
+			</div>
+			<div class="child child2">
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
+				ea suscipit aspernatur veritatis, consectetur illo ratione
+				accusantium. Maiores dolor provident expedita, voluptatum
+				quaerat itaque recusandae sint cum repudiandae voluptates.
+				Molestiae.
+			</div>
+			<div class="child child3">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Cupiditate sint, excepturi quidem incidunt nemo, quos eaque eum,
+				culpa eos ab corporis maxime labore inventore reiciendis
+				eligendi debitis et reprehenderit adipisci!Lorem ipsum dolor sit
+				amet consectetur adipisicing elit.
+			</div>
 		</div>
 		<script>
 			let k = document.getElementsByClassName("class1");
 			let t = document.getElementById("test1");
 			let p = document.querySelector("#test1");
-			console.log(p);
+			console.log(t.firstElementChild);
 			console.log(p.dataset.gogo, t.dataset.gogo);
 			k[0].classList.add("cool");
 			console.log(k[0].classList.contains("test1"));
@@ -53,7 +103,7 @@
 			setTimeout(function() {
 				// p.focus();
 				// focus(p);
-				// p.scrollIntoView(true);
+				p.scrollIntoView(true);
 			}, 1000);
 			console.log(document.hasFocus());
 		</script>
