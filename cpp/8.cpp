@@ -13,78 +13,94 @@
 
 using namespace std;
 
-int myAtoi(string str) {
-    long long res=0;
-    long long lx=0;//0:wufuhao  1:+  2:-
-    long long start=0, l=1;
-    string tres="";
+int myAtoi(string str)
+{
+    long long res = 0;
+    long long lx = 0; //0:wufuhao  1:+  2:-
+    long long start = 0, l = 1;
+    string tres = "";
 
-    //Ñ°ÕÒµÚÒ»¸öÓÐÐ§·ûºÅ£¬Èç¹ûµÚÒ»¸ö¾ÍÎÞÐ§Ö±½Óreturn0£»
-    for (long long i = 0; i < str.length(); ++i) {
-        if (str[i]==' ') {
-            cout<<"space.\n";
+    //å¯»æ‰¾ç¬¬ä¸€ä¸ªæœ‰æ•ˆç¬¦å·ï¼Œå¦‚æžœç¬¬ä¸€ä¸ªå°±æ— æ•ˆç›´æŽ¥return0ï¼›
+    for (long long i = 0; i < str.length(); ++i)
+    {
+        if (str[i] == ' ')
+        {
+            cout << "space.\n";
             continue;
         }
-        if (str[i]!='+'&&str[i]!='-'&&!(str[i]>='0'&&str[i]<='9')) {
-            cout<<"i="<<i<<"deshihou  diyigejiuwuxiao   gg\n";
+        if (str[i] != '+' && str[i] != '-' && !(str[i] >= '0' && str[i] <= '9'))
+        {
+            cout << "i=" << i << "deshihou  diyigejiuwuxiao   gg\n";
             return 0;
         }
-        if (str[i]=='+') {
-            start=i;
-            lx=1;
+        if (str[i] == '+')
+        {
+            start = i;
+            lx = 1;
             break;
         }
-        else if(str[i]=='-') {
-            start=i;
-            lx=2;
+        else if (str[i] == '-')
+        {
+            start = i;
+            lx = 2;
             break;
         }
-        else if((str[i]>='0'&&str[i]<='9')) {
-            start=i;
-            lx=0;
+        else if ((str[i] >= '0' && str[i] <= '9'))
+        {
+            start = i;
+            lx = 0;
             break;
         }
     }
 
-    //ÕÒ³¤¶È£¬Èç¹ûÓÐ·ûºÅÇÒ³¤¶ÈÖ»ÓÐ1£¬Ò²return0£»
-    cout<<"lx:"<<lx<<endl;
-    for (long long j = start+1; j < str.length(); ++j) {
-        if (!(str[j]>='0'&&str[j]<='9')) {
+    //æ‰¾é•¿åº¦ï¼Œå¦‚æžœæœ‰ç¬¦å·ä¸”é•¿åº¦åªæœ‰1ï¼Œä¹Ÿreturn0ï¼›
+    cout << "lx:" << lx << endl;
+    for (long long j = start + 1; j < str.length(); ++j)
+    {
+        if (!(str[j] >= '0' && str[j] <= '9'))
+        {
             break;
         }
         l++;
     }
-    if (lx!=0&&l==1) return 0;
-    cout<<"start at:"<<start<<" l="<<l<<endl;
+    if (lx != 0 && l == 1)
+        return 0;
+    cout << "start at:" << start << " l=" << l << endl;
 
-
-    //¸ù¾Ý¿ªÊ¼Î»ÖÃºÍ³¤¶È£¬²Ã¼ô³öÓÐÐ§Êý×Ö²¢×ª»»¡£
-    if (lx==0) {
-        tres=str.substr(start, l);
+    //æ ¹æ®å¼€å§‹ä½ç½®å’Œé•¿åº¦ï¼Œè£å‰ªå‡ºæœ‰æ•ˆæ•°å­—å¹¶è½¬æ¢ã€‚
+    if (lx == 0)
+    {
+        tres = str.substr(start, l);
     }
-    else {
-        tres=str.substr(start+1, l-1);
+    else
+    {
+        tres = str.substr(start + 1, l - 1);
     }
-    cout<<"tres: "<<tres<<endl;
+    cout << "tres: " << tres << endl;
     stringstream ss;
-    ss<<tres;
-    ss>>res;
+    ss << tres;
+    ss >> res;
 
-    if (lx==2) res=-res;
-    cout<<"res: "<<res<<endl;
-    if (abs(res)<=2147483647||res==-2147483648) {
-        cout<<"fanweinei.Õý³£Êä³ö\n";
+    if (lx == 2)
+        res = -res;
+    cout << "res: " << res << endl;
+    if (abs(res) <= 2147483647 || res == -2147483648)
+    {
+        cout << "fanweinei.æ­£å¸¸è¾“å‡º\n";
         return res;
     }
-    else if (res>0) return 2147483647;
-    else if (res<0) return -2147483648;
+    else if (res > 0)
+        return 2147483647;
+    else if (res < 0)
+        return -2147483648;
 
     return res;
 }
 
-int main() {
-    string s="  0000000000012345678";
-    int k=123;
+int main()
+{
+    string s = "  0000000000012345678";
+    int k = 123;
     cout << myAtoi(s) << endl;
     return 0;
 }
