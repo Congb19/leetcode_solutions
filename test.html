@@ -34,7 +34,7 @@
 				/* width: 50px; */
 			}
 			img::before {
-				content: attr(alt);
+				/* content: attr(alt); */
 			}
 			.class2 {
 				box-sizing: border-box;
@@ -76,6 +76,21 @@
 				min-width: 200px;
 				max-width: 200px;
 			}
+			.dad {
+				display: inline-block;
+				text-align: center;
+				padding: 10px;
+				border: 1px red solid;
+				margin-inline-start: 50%;
+				transform: translate(-50%);
+			}
+			.pic {
+				display: inline-block;
+			}
+			.txt {
+				display: block;
+				text-align: left;
+			}
 		</style>
 	</head>
 
@@ -88,13 +103,32 @@
 				>你好啊你好啊你好啊你好啊</span
 			>
 		</div>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Accusantium nisi odio ab illum animi, ex quidem eveniet molestias
+			aspernatur nesciunt veritatis, dolore corrupti explicabo numquam
+			repudiandae rem accusamus eligendi cupiditate?
+		</p>
+		<figure class="dad">
+			<img class="pic" src="651.png" alt="2" />
+			<figcaption class="txt">
+				Lorem ipsum dolor sit amet, consectetur adipisicing
+				elit.consectetur adipisicing elit.
+			</figcaption>
+		</figure>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Accusantium nisi odio ab illum animi, ex quidem eveniet molestias
+			aspernatur nesciunt veritatis, dolore corrupti explicabo numquam
+			repudiandae rem accusamus eligendi cupiditate?
+		</p>
 		<dot></dot>
 		<div class="class3">
 			<span style="display: inline-block;"></span>
 		</div>
-		<img src="651.png" alt="2" />
+		<!-- <img src="651.png" alt="2" />
 		<input type="button" value="123" />
-		<video></video>
+		<video></video> -->
 		<div class="father">
 			<div class="child child1">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
@@ -126,7 +160,7 @@
 			k[0].classList.add("cool");
 			console.log(k[0].classList.contains("test1"));
 			console.log(k[0]);
-			setTimeout(function() {
+			setTimeout(function () {
 				// p.focus();
 				// focus(p);
 				// p.scrollIntoView(true);
