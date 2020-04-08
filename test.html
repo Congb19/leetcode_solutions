@@ -91,12 +91,45 @@
 				display: block;
 				text-align: left;
 			}
+			.middad {
+				position: relative;
+				margin: 30px;
+				width: 600px;
+				height: 400px;
+				border: 1px red solid;
+				display: inline-block;
+			}
+			.midson {
+				width: 200px;
+				height: 200px;
+				border: 1px blue solid;
+				/* 1 */
+				/* position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto; */
+				/* 2 */
+				/* position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%); */
+				/* 3 */
+				/* position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -100px 0 0 -100px; */
+			}
 		</style>
 	</head>
 
 	<body>
 		<div id="test1" class="class1" data-gogo="123">
 			<div>2</div>
+		</div>
+		<div class="middad">
+			<div class="midson"></div>
 		</div>
 		<div class="class2" alt="123">
 			<span style="display: inline-block; max-width: 100%;"
