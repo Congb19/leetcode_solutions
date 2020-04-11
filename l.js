@@ -153,3 +153,7 @@
 // 	var b = parseInt(lines[1]);
 // 	print(a + b);
 // }
+{
+	let a;
+	console.log(a);
+}
