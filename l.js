@@ -153,7 +153,12 @@
 // 	var b = parseInt(lines[1]);
 // 	print(a + b);
 // }
-{
-	let a;
-	console.log(a);
-}
+// {
+// 	let a;
+// 	console.log(a);
+// }
+let date = new Date();
+setTimeout(() => {
+	console.log(new Date() - date);
+}, 1000);
+while (new Date() - date < 2000);
