@@ -157,8 +157,86 @@
 // 	let a;
 // 	console.log(a);
 // }
-let date = new Date();
-setTimeout(() => {
-	console.log(new Date() - date);
-}, 1000);
-while (new Date() - date < 2000);
+
+// let date = new Date();
+// setTimeout(() => {
+// 	console.log(new Date() - date);
+// }, 1000);
+// while (new Date() - date < 2000);
+
+// 闭包例子1
+// var f;
+// function f1() {
+// 	var a = 2;
+// 	function f2() {
+// 		console.log(a);
+// 	}
+// 	f = f2;
+// }
+// function f3() {
+// 	f();
+// }
+// f1();
+// f3();
+
+// 闭包例子2 循环
+// for (var i = 0; i < 5; i++) {
+// 	setTimeout(function timer() {
+// 		console.log(i);
+// 	}, i * 1000);
+// }
+// console.log("i:", i);
+// for (let i = 0; i < 5; i++) {
+// 	setTimeout(function timer() {
+// 		console.log(i);
+// 	}, i * 1000);
+// }
+// console.log(__filename);
+
+// 闭包例子3 模块
+// 必须有一个外部封闭函数（f1）且至少调用一次（赋值给了fff）
+// 必须返回至少一个内部函数（f2），这样f2就在f1内部作用域形成了闭包
+// function f1() {
+// 	let a = 321;
+// 	let b = "123";
+// 	function f2(params) {
+// 		b = params;
+// 		console.log(a, b);
+// 	}
+// 	return {
+// 		func: f2,
+// 	};
+// }
+// let fff = f1();
+// fff.func("124");
+
+//this测试
+// var obj = {
+// 	count: 0,
+// 	cool: function coolFn() {
+// 		console.log(this);
+// 		let self = this;
+// 		if (self.count < 1) {
+// 			setTimeout(function timer() {
+// 				console.log(this);
+// 				self.count++;
+// 				console.log(self.count);
+// 			}, 100);
+// 		}
+// 	},
+// };
+// obj.cool();
+var obj = {
+	count: 0,
+	cool: function coolFn() {
+		console.log(this);
+		if (this.count < 1) {
+			setTimeout(() => {
+				console.log(this);
+				this.count++;
+				console.log(this.count);
+			}, 100);
+		}
+	},
+};
+obj.cool();
