@@ -210,7 +210,8 @@
 // let fff = f1();
 // fff.func("124");
 
-//this测试
+//this测试1
+// self替代法
 // var obj = {
 // 	count: 0,
 // 	cool: function coolFn() {
@@ -225,18 +226,41 @@
 // 		}
 // 	},
 // };
+// 箭头函数的this强行绑定
 // obj.cool();
-var obj = {
-	count: 0,
-	cool: function coolFn() {
-		console.log(this);
-		if (this.count < 1) {
-			setTimeout(() => {
-				console.log(this);
-				this.count++;
-				console.log(this.count);
-			}, 100);
-		}
-	},
-};
-obj.cool();
+// var obj = {
+// 	count: 0,
+// 	cool: function coolFn() {
+// 		console.log(this);
+// 		if (this.count < 1) {
+// 			setTimeout(() => {
+// 				console.log(this);
+// 				this.count++;
+// 				console.log(this.count);
+// 			}, 100);
+// 		}
+// 	},
+// };
+// obj.cool();
+
+//this测试2
+// 函数调用栈
+// function f1() {
+// 	debugger;
+// 	console.log("f1");
+// 	f2();
+// }
+// function f2() {
+// 	debugger;
+// 	console.log("f2");
+// }
+// f1();
+// let ko = Object.create(null);
+
+let arr = ["ad", "asd", "assd"];
+arr["0"] = "123";
+let str = "hello";
+console.log(arr["0"], arr, typeof arr);
+console.log(arr instanceof Object, arr instanceof Array);
+console.log(str, typeof str);
+console.log(str instanceof Object, str instanceof String);
