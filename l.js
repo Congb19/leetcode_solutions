@@ -257,10 +257,21 @@
 // f1();
 // let ko = Object.create(null);
 
-let arr = ["ad", "asd", "assd"];
-arr["0"] = "123";
-let str = "hello";
-console.log(arr["0"], arr, typeof arr);
-console.log(arr instanceof Object, arr instanceof Array);
-console.log(str, typeof str);
-console.log(str instanceof Object, str instanceof String);
+// let arr = ["ad", "asd", "assd"];
+// arr["0"] = "123";
+// let str = "hello";
+// console.log(arr["0"], arr, typeof arr);
+// console.log(arr instanceof Object, arr instanceof Array);
+// console.log(str, typeof str);
+// console.log(str instanceof Object, str instanceof String);
+
+// let obj = {
+// 	get a() {
+// 		return 3; //此处如果是this.a，则又调用了getter，进入死循环
+// 	},
+// 	set a(val) {
+// 		this.a = val;
+// 	},
+// };
+// obj.a = 2;
+// console.log(obj.a);
