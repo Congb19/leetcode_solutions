@@ -1,4 +1,7 @@
 // learn
+function q(args) {
+	console.log.apply(null, args);
+}
 
 // let num1=5;
 // let num2=num1;
@@ -275,3 +278,94 @@
 // };
 // obj.a = 2;
 // console.log(obj.a);
+
+//属性设置和屏蔽全过程
+// let b = {
+// 	num: 123,
+// };
+// Object.defineProperty(b, "num", {
+// 	writable: false,
+// });
+// let a = Object.create(b);
+// console.log(a, b);
+// a.num = 234;
+// // console.log(a.__proto__);
+// console.log(a, b);
+
+//new和Object.create的区别
+// function Car() {
+// 	this.color = "red";
+// }
+// Car.prototype.sayHi = function () {
+// 	console.log("你好");
+// };
+// console.log(Car.prototype.constructor);
+// var car = new Car();
+// var car2 = Object.create(Car);
+// var emp = Object.create(null);
+// // console.log(Car);
+// console.log(car);
+// console.log(car2);
+// // console.log(emp);
+// // console.log(car2.color);
+// console.log(car.__proto__ === Car.prototype); //true
+// console.log(car2.__proto__ === Car.prototype); //false
+
+//各种继承
+function Base(name) {
+	this.type = name;
+}
+//1 原型链
+// 特点
+// 比较原始，简单
+// 非常纯粹的继承关系，实例是子类的实例，也是父类的实例
+// 父类新增原型方法/原型属性，子类都能访问到
+// 缺点：
+// 要想为子类新增属性和方法，必须要在new A()这样的语句之后执行，不能放到构造器中
+// 无法实现多继承
+// 来自原型对象的所有属性被所有实例共享
+// 创建子类实例时 无法向父类构造函数传参
+// 代码
+function A() {}
+A.prototype = new Base("cat");
+A.prototype.constructor = A;
+let a = new A();
+console.log(A, a, a.type, A.prototype.constructor);
+
+//2 构造
+// 特点
+// 解决了1中，子类实例共享父类引用属性的问题
+// 创建子类实例时，可以向父类传递参数
+// 可以实现多继承（call多个父类对象）
+// 缺点：
+// 实例并不是父类的实例，只是子类的实例
+// 只能继承父类的实例属性和方法，不能继承原型属性/方法
+// 无法实现函数复用，每个子类都有父类实例函数的副本，影响性能
+// 代码
+// function B() {
+// 	Base.call(this, "dog");
+// }
+// let b = new B();
+// console.log(B, b, b.type);
+// 3、实例继承
+// 核心：为父类实例添加新特性，作为子类实例返回
+// 特点：
+// 不限制调用方式，不管是new 子类()还是子类(), 返回的对象具有相同的效果
+// 缺点：
+// 实例是父类的实例，不是子类的实例
+// 不支持多继承
+// function C(name) {
+// 	var instance = new Base();
+// 	instance.name = name || "pig";
+// 	return instance;
+// }
+// var c = new C();
+// console.log(C, c, c.type);
+// 4 拷贝
+// 相当于对父类做一次浅拷贝
+// 支持多继承
+// 但是效率比较低，毕竟要复制一遍
+// enumerable为false的属性拷贝不过来
+// 5 组合继承
+// 核心：通过调用父类构造，继承父类的属性并保留传参的优点
+// 然后通过将父类实例作为子类原型，实现函数复用
