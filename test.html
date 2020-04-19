@@ -70,20 +70,15 @@
 				background-color: green;
 			}
 			.child1 {
-				/* min-width: 200px;
-				max-width: 200px; */
-				width: 200px;
-				float: left;
+				min-width: 200px;
+				max-width: 200px;
 			}
 			.child2 {
 				/* flex-grow: 1; */
 			}
 			.child3 {
-				/* min-width: 200px;
-				max-width: 200px; */
-				width: 200px;
-				float: right;
-				overflow:hidden;
+				min-width: 200px;
+				max-width: 200px;
 			}
 			.dad {
 				display: inline-block;
@@ -153,9 +148,9 @@
 				width: 30px;
 				height: 30px;
 				margin: 10px;
-				/* 不等比缩小1 */
+				/* 不等比缩小方法1 */
 				/* min-width: 30px; */
-				/* 不等比缩小2 */
+				/* 不等比缩小方法2 */
 				flex-shrink: 0;
 
 				/* 隐藏方式 */
@@ -173,6 +168,7 @@
 	</head>
 
 	<body>
+		<button onclick="debounce()">debounce test</button>
 		<div id="test1" class="class1" data-gogo="123">
 			<div>2</div>
 		</div>
@@ -251,20 +247,30 @@
 			</div>
 		</div>
 		<script>
-			let k = document.getElementsByClassName("class1");
-			let t = document.getElementById("test1");
-			let p = document.querySelector("#test1");
-			console.log(t.firstElementChild);
-			console.log(p.dataset.gogo, t.dataset.gogo);
-			k[0].classList.add("cool");
-			console.log(k[0].classList.contains("test1"));
-			console.log(k[0]);
-			setTimeout(function () {
-				// p.focus();
-				// focus(p);
-				// p.scrollIntoView(true);
-			}, 1000);
-			console.log(document.hasFocus());
+			// let k = document.getElementsByClassName("class1");
+			// let t = document.getElementById("test1");
+			// let p = document.querySelector("#test1");
+			// console.log(t.firstElementChild);
+			// console.log(p.dataset.gogo, t.dataset.gogo);
+			// k[0].classList.add("cool");
+			// console.log(k[0].classList.contains("test1"));
+			// console.log(k[0]);
+			// setTimeout(function () {
+			// 	// p.focus();
+			// 	// focus(p);
+			// 	// p.scrollIntoView(true);
+			// }, 1000);
+			// console.log(document.hasFocus());
+
+			//防抖简单实现
+			function test1() {
+				console.log("123");
+			}
+			let timer=null;
+			const debounce = () => {
+				clearTimeout(timer);
+				timer = setTimeout(test1, 1000);
+			};
 		</script>
 	</body>
 </html>

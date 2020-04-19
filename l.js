@@ -293,23 +293,25 @@ function q(args) {
 // console.log(a, b);
 
 //new和Object.create的区别
-// function Car() {
-// 	this.color = "red";
-// }
-// Car.prototype.sayHi = function () {
-// 	console.log("你好");
-// };
+function Car() {
+	this.color = "red";
+}
+Car.prototype.sayHi = function () {
+	console.log("你好");
+};
 // console.log(Car.prototype.constructor);
-// var car = new Car();
-// var car2 = Object.create(Car);
+var car = new Car();
+var car2 = Object.create(Car.prototype);
 // var emp = Object.create(null);
-// // console.log(Car);
-// console.log(car);
-// console.log(car2);
-// // console.log(emp);
-// // console.log(car2.color);
-// console.log(car.__proto__ === Car.prototype); //true
-// console.log(car2.__proto__ === Car.prototype); //false
+// console.log(Car);
+console.log(car);
+console.log(car2);
+car.sayHi();
+car2.sayHi();
+// console.log(emp);
+// console.log(car2.color);
+console.log(car.__proto__ === Car.prototype); //true
+console.log(car2.__proto__ === Car.prototype); //false
 
 //各种继承
 function Base(name) {
@@ -326,11 +328,11 @@ function Base(name) {
 // 来自原型对象的所有属性被所有实例共享
 // 创建子类实例时 无法向父类构造函数传参
 // 代码
-function A() {}
-A.prototype = new Base("cat");
-A.prototype.constructor = A;
-let a = new A();
-console.log(A, a, a.type, A.prototype.constructor);
+// function A() {}
+// A.prototype = new Base("cat");
+// A.prototype.constructor = A;
+// let a = new A();
+// console.log(A, a, a.type, A.prototype.constructor);
 
 //2 构造
 // 特点
@@ -347,19 +349,19 @@ console.log(A, a, a.type, A.prototype.constructor);
 // }
 // let b = new B();
 // console.log(B, b, b.type);
-// 3、实例继承
+// 3、实例继承(这什么垃圾方式啊)
 // 核心：为父类实例添加新特性，作为子类实例返回
 // 特点：
 // 不限制调用方式，不管是new 子类()还是子类(), 返回的对象具有相同的效果
 // 缺点：
-// 实例是父类的实例，不是子类的实例
+// 实例是父类的实例，不是子类的实例（致命）
 // 不支持多继承
 // function C(name) {
-// 	var instance = new Base();
-// 	instance.name = name || "pig";
-// 	return instance;
+// 	let t = new Base();
+// 	t.name = name || "pig";
+// 	return t;
 // }
-// var c = new C();
+// let c = new C();
 // console.log(C, c, c.type);
 // 4 拷贝
 // 相当于对父类做一次浅拷贝
@@ -369,3 +371,47 @@ console.log(A, a, a.type, A.prototype.constructor);
 // 5 组合继承
 // 核心：通过调用父类构造，继承父类的属性并保留传参的优点
 // 然后通过将父类实例作为子类原型，实现函数复用
+// 特点：
+// 弥补了方式2的缺陷，可以继承实例属性 / 方法，也可以继承原型属性 / 方法
+// 既是子类的实例，也是父类的实例
+// 不存在引用属性共享问题
+// 可传参
+// 函数可复用
+// 缺点：
+// 调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了）
+// function E() {
+// 	Base.call(this, "eee");
+// }
+// E.prototype = new Base();
+// let e = new E();
+// console.log(E, e, e.type);
+// 6 组合寄生
+// 核心：通过寄生方式，砍掉父类的实例属性，
+// 这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点
+// function F() {
+// 	Base.call(this, "fff");
+// }
+// let Super = function () {};
+// Super.prototype = Base.prototype;
+// F.prototype = new Super();
+// let f = new F();
+// console.log(F, f, f.type);
+
+// 7.Object.create原型继承
+// function dad() {
+// 	this.name = "dad";
+// }
+// dad.prototype.getname = function () {
+// 	return this.name;
+// };
+// function son() {
+// 	this.name = "son";
+// }
+// son.prototype = Object.create(dad.prototype);
+// //而不是son.prototype=new dad();，用new的话会出现一些问题（比如this指向问题等等）。
+// let a = new dad();
+// let b = new son();
+// let c = Object.create(son.prototype);
+// console.log(dad.prototype, son.prototype);
+// console.log(a.name, b.name, c.name, a.getname(), b.getname(), c.getname());
+// console.log(a.__proto__, b.__proto__, c.__proto__);

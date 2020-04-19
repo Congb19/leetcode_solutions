@@ -1,42 +1,46 @@
 function HashMap() {
-    this.map = {};
+	this.map = {};
 }
 HashMap.prototype = {
-    put: function (key, value) {// ÏòMapÖĞÔö¼ÓÔªËØ£¨key, value) 
-        this.map[key] = value;
-    },
-    get: function (key) { //»ñÈ¡Ö¸¶¨KeyµÄÔªËØÖµValue£¬Ê§°Ü·µ»ØNull 
-        if (this.map.hasOwnProperty(key)) {
-            return this.map[key];
-        }
-        return null;
-    },
-    set: function (key, value) {
-        if (this.map.hasOwnProperty(key)) {
-            this.map[key]=value;
-        }
-        else {
-            this.map.put(key, value);
-        }
-    },
-    remove: function (key) { // É¾³ıÖ¸¶¨KeyµÄÔªËØ£¬³É¹¦·µ»ØTrue£¬Ê§°Ü·µ»ØFalse
-        if (this.map.hasOwnProperty(key)) {
-            return delete this.map[key];
-        }
-        return false;
-    },
-    removeAll: function () {  //Çå¿ÕHashMapËùÓĞÔªËØ
-        this.map = {};
-    },
-    keySet: function () { //»ñÈ¡MapÖĞËùÓĞKEYµÄÊı×é£¨Array£© 
-        var _keys = [];
-        for (var i in this.map) {
-            _keys.push(i);
-        }
-        return _keys;
-    },
-    show: function () {
-        console.log(this.map);
-    }
+	put: function (key, value) {
+		// å‘Mapä¸­å¢åŠ å…ƒç´ ï¼ˆkey, value)
+		this.map[key] = value;
+	},
+	get: function (key) {
+		//è·å–æŒ‡å®šKeyçš„å…ƒç´ å€¼Valueï¼Œå¤±è´¥è¿”å›Null
+		if (this.map.hasOwnProperty(key)) {
+			return this.map[key];
+		}
+		return null;
+	},
+	set: function (key, value) {
+		if (this.map.hasOwnProperty(key)) {
+			this.map[key] = value;
+		} else {
+			this.map.put(key, value);
+		}
+	},
+	remove: function (key) {
+		// åˆ é™¤æŒ‡å®šKeyçš„å…ƒç´ ï¼ŒæˆåŠŸè¿”å›Trueï¼Œå¤±è´¥è¿”å›False
+		if (this.map.hasOwnProperty(key)) {
+			return delete this.map[key];
+		}
+		return false;
+	},
+	removeAll: function () {
+		//æ¸…ç©ºHashMapæ‰€æœ‰å…ƒç´ 
+		this.map = {};
+	},
+	keySet: function () {
+		//è·å–Mapä¸­æ‰€æœ‰KEYçš„æ•°ç»„ï¼ˆArrayï¼‰
+		var _keys = [];
+		for (var i in this.map) {
+			_keys.push(i);
+		}
+		return _keys;
+	},
+	show: function () {
+		console.log(this.map);
+	},
 };
 HashMap.prototype.constructor = HashMap;
