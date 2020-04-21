@@ -168,33 +168,32 @@ function q(args) {
 // while (new Date() - date < 2000);
 
 // 闭包例子1
-// var f;
-// function f1() {
-// 	var a = 2;
-// 	function f2() {
-// 		console.log(a);
-// 	}
-// 	f = f2;
-// }
-// function f3() {
-// 	f();
-// }
-// f1();
-// f3();
+var f;
+function f1() {
+	var a = 2;
+	function f2() {
+		console.log(a);
+	}
+	f = f2;
+}
+function f3() {
+	f();
+}
+f1();
+f3();
 
 // 闭包例子2 循环
-// for (var i = 0; i < 5; i++) {
-// 	setTimeout(function timer() {
-// 		console.log(i);
-// 	}, i * 1000);
-// }
-// console.log("i:", i);
-// for (let i = 0; i < 5; i++) {
-// 	setTimeout(function timer() {
-// 		console.log(i);
-// 	}, i * 1000);
-// }
-// console.log(__filename);
+for (var i = 0; i < 5; i++) {
+	setTimeout(function timer() {
+		console.log(i);
+	}, i * 1000);
+}
+console.log("i:", i);
+for (let i = 0; i < 5; i++) {
+	setTimeout(function timer() {
+		console.log(i);
+	}, i * 1000);
+}
 
 // 闭包例子3 模块
 // 必须有一个外部封闭函数（f1）且至少调用一次（赋值给了fff）
@@ -293,25 +292,25 @@ function q(args) {
 // console.log(a, b);
 
 //new和Object.create的区别
-function Car() {
-	this.color = "red";
-}
-Car.prototype.sayHi = function () {
-	console.log("你好");
-};
-// console.log(Car.prototype.constructor);
-var car = new Car();
-var car2 = Object.create(Car.prototype);
-// var emp = Object.create(null);
-// console.log(Car);
-console.log(car);
-console.log(car2);
-car.sayHi();
-car2.sayHi();
-// console.log(emp);
-// console.log(car2.color);
-console.log(car.__proto__ === Car.prototype); //true
-console.log(car2.__proto__ === Car.prototype); //false
+// function Car() {
+// 	this.color = "red";
+// }
+// Car.prototype.sayHi = function () {
+// 	console.log("你好");
+// };
+// // console.log(Car.prototype.constructor);
+// var car = new Car();
+// var car2 = Object.create(Car.prototype);
+// // var emp = Object.create(null);
+// // console.log(Car);
+// console.log(car);
+// console.log(car2);
+// car.sayHi();
+// car2.sayHi();
+// // console.log(emp);
+// // console.log(car2.color);
+// console.log(car.__proto__ === Car.prototype); //true
+// console.log(car2.__proto__ === Car.prototype); //false
 
 //各种继承
 function Base(name) {
