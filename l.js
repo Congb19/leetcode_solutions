@@ -168,32 +168,32 @@ function q(args) {
 // while (new Date() - date < 2000);
 
 // 闭包例子1
-var f;
-function f1() {
-	var a = 2;
-	function f2() {
-		console.log(a);
-	}
-	f = f2;
-}
-function f3() {
-	f();
-}
-f1();
-f3();
+// var f;
+// function f1() {
+// 	var a = 2;
+// 	function f2() {
+// 		console.log(a);
+// 	}
+// 	f = f2;
+// }
+// function f3() {
+// 	f();
+// }
+// f1();
+// f3();
 
 // 闭包例子2 循环
-for (var i = 0; i < 5; i++) {
-	setTimeout(function timer() {
-		console.log(i);
-	}, i * 1000);
-}
-console.log("i:", i);
-for (let i = 0; i < 5; i++) {
-	setTimeout(function timer() {
-		console.log(i);
-	}, i * 1000);
-}
+// for (var i = 0; i < 5; i++) {
+// 	setTimeout(function timer() {
+// 		console.log(i);
+// 	}, i * 1000);
+// }
+// console.log("i:", i);
+// for (let i = 0; i < 5; i++) {
+// 	setTimeout(function timer() {
+// 		console.log(i);
+// 	}, i * 1000);
+// }
 
 // 闭包例子3 模块
 // 必须有一个外部封闭函数（f1）且至少调用一次（赋值给了fff）
@@ -414,3 +414,7 @@ function Base(name) {
 // console.log(dad.prototype, son.prototype);
 // console.log(a.name, b.name, c.name, a.getname(), b.getname(), c.getname());
 // console.log(a.__proto__, b.__proto__, c.__proto__);
+
+var a = new String("asd");
+var b = "asd";
+console.log(a, typeof a, a instanceof Object, a == b, a === b);
