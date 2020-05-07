@@ -10,13 +10,17 @@
 
 using namespace std;
 
-vector<int> twoSum(vector<int>& nums, int target) {
+vector<int> twoSum(vector<int> &nums, int target)
+{
     vector<int> res(2);
-    for (int i = 0; i < nums.size()-1; ++i) {
-        for (int j = i+1; j < nums.size(); ++j) {
-            if (nums[j]+nums[i]==target) {
-                res[0]=i;
-                res[1]=j;
+    for (int i = 0; i < nums.size() - 1; ++i)
+    {
+        for (int j = i + 1; j < nums.size(); ++j)
+        {
+            if (nums[j] + nums[i] == target)
+            {
+                res[0] = i;
+                res[1] = j;
                 return res;
             }
         }
@@ -24,10 +28,11 @@ vector<int> twoSum(vector<int>& nums, int target) {
     return res;
 }
 
-int main() {
+int main()
+{
     //string A[26] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
-    vector<int> nums = {2,7,11,15};
-    int target=9;
+    vector<int> nums = {2, 7, 11, 15};
+    int target = 9;
     cout << "no test" << endl;
     return 0;
 }
