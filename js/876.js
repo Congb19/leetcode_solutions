@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function(head) {
+var middleNode = function (head) {
 	if (head === null || head.next === null) return head;
 	let p1 = head;
 	let p2 = head.next;
