@@ -418,3 +418,4 @@ function Base(name) {
 var a = new String("asd");
 var b = "asd";
 console.log(a, typeof a, a instanceof Object, a == b, a === b);
+console.log(3 % 53);
