@@ -415,7 +415,10 @@ function Base(name) {
 // console.log(a.name, b.name, c.name, a.getname(), b.getname(), c.getname());
 // console.log(a.__proto__, b.__proto__, c.__proto__);
 
-var a = new String("asd");
-var b = "asd";
-console.log(a, typeof a, a instanceof Object, a == b, a === b);
-console.log(3 % 53);
+// var a = new String("asd");
+// var b = "asd";
+// console.log(a, typeof a, a instanceof Object, a == b, a === b);
+
+// console.log(3 % 53);
+
+console.log(JSON.stringify(123));
