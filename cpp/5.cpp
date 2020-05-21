@@ -2,108 +2,115 @@
 // Created by Congb on 2019/9/28.
 //
 
-#include <iostream>
-#include <string>
-#include <stack>
-#include <vector>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <stack>
+#include <string>
+#include <vector>
 #define ture true
 
 using namespace std;
 
 string longestPalindrome(string s) {
-    string res="";
-    int max=1, l=1, ispd=1, maxi=0;
-    if (s.length()==1||(s.length()==2&&(s[0]==s[1]))||(s.length()==3&&(s[0]==s[2]))) return s;
-    if (s.length()==0) return s;
-//    cout<<s.length()<<endl;
+	string res = "";
+	int max = 1, l = 1, ispd = 1, maxi = 0;
+	if (s.length() == 1 || (s.length() == 2 && (s[0] == s[1])) ||
+		(s.length() == 3 && (s[0] == s[2])))
+		return s;
+	if (s.length() == 0) return s;
+	//    cout<<s.length()<<endl;
 
-    //¼ÙÉè×î³¤»ØÎÄ³¤¶ÈÎªÆæÊý£¬¼ÙÉèÃ¿Ò»¸öiÎªÖÐÐÄ£¬jÀ©É¢¿ªÀ´¼ÇÂ¼¡£
-//    if (s.length()%2==1)
-    for (int i = 1; i < s.length()-1; ++i) {
-        for (int j = 0; (i+j<s.length())&&(i-j>=0); ++j) {
-//            cout<<"i="<<i<<" j="<<j<<endl;
-            //Èç¹ûGGÁË£¬¼ÇÂ¼Ò»ÏÂ
-            if (s[i+j]!=s[i-j]) {
-                ispd=0;
-                l=2*j-1;
-//                cout<<"stop. s"<<i+j<<"!=s"<<i-j<<", length="<<l<<endl;
-            }
-            else {
-                l=2*j+1;
-//                cout<<"gogo! s"<<i+j<<"==s"<<i-j<<", length="<<l<<endl;
-                if (l>=max) {
-//                    cout<<"updated! max="<<l<<"  maxi="<<maxi<<endl;
-                    max = l;
-                    maxi = i;
-                }
-            }
-            //ÕâÒ»×éijÊÇ²»ÊÇ»ØÎÄ£¬Èç¹û²»ÊÇ£¬jÎÞÐèÔÙÔö´óÁË£¬Ö±½ÓÏÂÒ»¸öi¡£
-            if(ispd==0) {
-                l=1;
-                ispd=1;
+	//å‡è®¾æœ€é•¿å›žæ–‡é•¿åº¦ä¸ºå¥‡æ•°ï¼Œå‡è®¾æ¯ä¸€ä¸ªiä¸ºä¸­å¿ƒï¼Œjæ‰©æ•£å¼€æ¥è®°å½•ã€‚
+	//    if (s.length()%2==1)
+	for (int i = 1; i < s.length() - 1; ++i) {
+		for (int j = 0; (i + j < s.length()) && (i - j >= 0); ++j) {
+			//            cout<<"i="<<i<<" j="<<j<<endl;
+			//å¦‚æžœGGäº†ï¼Œè®°å½•ä¸€ä¸‹
+			if (s[i + j] != s[i - j]) {
+				ispd = 0;
+				l	 = 2 * j - 1;
+				//                cout<<"stop. s"<<i+j<<"!=s"<<i-j<<",
+				//                length="<<l<<endl;
+			}
+			else {
+				l = 2 * j + 1;
+				//                cout<<"gogo! s"<<i+j<<"==s"<<i-j<<",
+				//                length="<<l<<endl;
+				if (l >= max) {
+					//                    cout<<"updated! max="<<l<<"
+					//                    maxi="<<maxi<<endl;
+					max	 = l;
+					maxi = i;
+				}
+			}
+			//è¿™ä¸€ç»„ijæ˜¯ä¸æ˜¯å›žæ–‡ï¼Œå¦‚æžœä¸æ˜¯ï¼Œjæ— éœ€å†å¢žå¤§äº†ï¼Œç›´æŽ¥ä¸‹ä¸€ä¸ªiã€‚
+			if (ispd == 0) {
+				l	 = 1;
+				ispd = 1;
 
-                break;
-            }
-            else {
-                continue;
-            }
-        }
-    }
-    //ÊÇÅ¼Êý£¬ÔòÕÒÒ»ÏÂÒ»¶ÔÒ»¶ÔµÄÀ©É¢¿ªÀ´¡£
-//    else
-    for (int i = 0; i < s.length()-1; ++i) {
-        if (s[i]==s[i+1]) {
-            for (int j = 0; i-j>=0 && j+1+i<s.length(); ++j) {
-//                cout<<"i="<<i<<" j="<<j<<endl;
-                //Èç¹ûGGÁË£¬¼ÇÂ¼Ò»ÏÂ
-                if (s[i+j+1]!=s[i-j]) {
-                    ispd=0;
-                    l=2*j;
-//                    cout<<"stop. s"<<i+j+1<<"!=s"<<i-j<<", length="<<l<<endl;
-                }
-                else {
-                    l=2*j+2;
-//                    cout<<"gogo! s"<<i+j+1<<"==s"<<i-j<<", length="<<l<<endl;
-                    if (l>=max) {
-//                        cout<<"updated! max="<<l<<"  maxi="<<maxi<<endl;
-                        max = l;
-                        maxi = i;
-                    }
-                }
-                //ÕâÒ»×éijÊÇ²»ÊÇ»ØÎÄ£¬Èç¹û²»ÊÇ£¬jÎÞÐèÔÙÔö´óÁË£¬Ö±½ÓÏÂÒ»¸öi¡£
-                if(ispd==0) {
-                    l=1;
-                    ispd=1;
-                    break;
-                }
-                else {
-                    continue;
-                }
+				break;
+			}
+			else {
+				continue;
+			}
+		}
+	}
+	//æ˜¯å¶æ•°ï¼Œåˆ™æ‰¾ä¸€ä¸‹ä¸€å¯¹ä¸€å¯¹çš„æ‰©æ•£å¼€æ¥ã€‚
+	//    else
+	for (int i = 0; i < s.length() - 1; ++i) {
+		if (s[i] == s[i + 1]) {
+			for (int j = 0; i - j >= 0 && j + 1 + i < s.length(); ++j) {
+				//                cout<<"i="<<i<<" j="<<j<<endl;
+				//å¦‚æžœGGäº†ï¼Œè®°å½•ä¸€ä¸‹
+				if (s[i + j + 1] != s[i - j]) {
+					ispd = 0;
+					l	 = 2 * j;
+					//                    cout<<"stop. s"<<i+j+1<<"!=s"<<i-j<<",
+					//                    length="<<l<<endl;
+				}
+				else {
+					l = 2 * j + 2;
+					//                    cout<<"gogo! s"<<i+j+1<<"==s"<<i-j<<",
+					//                    length="<<l<<endl;
+					if (l >= max) {
+						//                        cout<<"updated! max="<<l<<"
+						//                        maxi="<<maxi<<endl;
+						max	 = l;
+						maxi = i;
+					}
+				}
+				//è¿™ä¸€ç»„ijæ˜¯ä¸æ˜¯å›žæ–‡ï¼Œå¦‚æžœä¸æ˜¯ï¼Œjæ— éœ€å†å¢žå¤§äº†ï¼Œç›´æŽ¥ä¸‹ä¸€ä¸ªiã€‚
+				if (ispd == 0) {
+					l	 = 1;
+					ispd = 1;
+					break;
+				}
+				else {
+					continue;
+				}
+			}
+		}
+	}
 
-            }
-        }
-    }
+	//    cout<<"maxi="<<maxi<<"; maxlength="<<max<<endl;
+	int p = max / 2;
 
-//    cout<<"maxi="<<maxi<<"; maxlength="<<max<<endl;
-    int p = max/2;
+	//ç”Ÿæˆres
+	if (max % 2 == 1)
+		for (int k = maxi - p; k <= maxi + p; ++k) {
+			res += s[k];
+		}
+	else
+		for (int m = maxi - p + 1; m <= maxi + p; ++m) {
+			res += s[m];
+		}
 
-    //Éú³Éres
-    if (max%2==1)
-        for (int k = maxi-p; k <= maxi+p; ++k) {
-            res+=s[k];
-        }
-    else
-        for (int m = maxi-p+1; m <= maxi+p; ++m) {
-            res+=s[m];
-        }
-
-    return res;
+	return res;
 }
 
 int main() {
-    string s="dcbcadcbcdc";
-    cout << longestPalindrome(s) << endl;
-    return 0;
+	string s = "dcbcadcbcdc";
+	cout << longestPalindrome(s) << endl;
+	return 0;
 }

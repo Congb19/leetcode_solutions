@@ -422,3 +422,7 @@ function Base(name) {
 // console.log(3 % 53);
 
 console.log(JSON.stringify(123));
+console.log(-0 < 0);
+
+console.log(Promise.resolve(42));
+

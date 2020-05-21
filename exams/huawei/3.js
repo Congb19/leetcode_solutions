@@ -25,6 +25,7 @@ while ((line = readline())) {
 			}
 		});
 	});
+	//contain = 在i j位置能不能填t
 	let contain = (i, j, t) => {
 		for (let p = 0; p < 9; p++) {
 			if (map[i][p] === t) return true;
