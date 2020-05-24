@@ -343,11 +343,11 @@ function Base(name) {
 // 只能继承父类的实例属性和方法，不能继承原型属性/方法
 // 无法实现函数复用，每个子类都有父类实例函数的副本，影响性能
 // 代码
-// function B() {
-// 	Base.call(this, "dog");
-// }
-// let b = new B();
-// console.log(B, b, b.type);
+function B() {
+	Base.call(this, "dog");
+}
+let b = new B();
+console.log(B, b, b.type);
 // 3、实例继承(这什么垃圾方式啊)
 // 核心：为父类实例添加新特性，作为子类实例返回
 // 特点：
@@ -420,9 +420,14 @@ function Base(name) {
 // console.log(a, typeof a, a instanceof Object, a == b, a === b);
 
 // console.log(3 % 53);
+// console.log(JSON.stringify(123));
+// console.log(-0 < 0);
+// console.log(Promise.resolve(42));
 
-console.log(JSON.stringify(123));
-console.log(-0 < 0);
-
-console.log(Promise.resolve(42));
-
+// function ddd() {
+// 	function fff() {
+// 		console.log("!23");
+// 	}
+// 	return fff();
+// }
+// ddd();
