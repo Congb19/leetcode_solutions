@@ -43,7 +43,12 @@
             "tuple": "cpp",
             "type_traits": "cpp",
             "utility": "cpp",
-            "typeinfo": "cpp"
+            "typeinfo": "cpp",
+            "string": "cpp",
+            "forward_list": "cpp",
+            "list": "cpp",
+            "unordered_set": "cpp",
+            "regex": "cpp"
         }
     }
 }
