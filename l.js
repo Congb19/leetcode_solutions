@@ -431,3 +431,27 @@ console.log(B, b, b.type);
 // 	return fff();
 // }
 // ddd();
+
+async function pp() {
+	// Promise.all();
+	let timer1 = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve("识别模型加载超时1");
+		}, 3000);
+	});
+	let timer2 = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			reject("识别模型加载超时2");
+		}, 4000);
+	});
+	await Promise.race([timer1, timer2]).then(
+		function (ok) {
+			console.log(ok, "a");
+		},
+		function (err) {
+			console.log(err, "b");
+		}
+	);
+	console.log("ok");
+}
+pp();
