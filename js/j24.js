@@ -19,32 +19,32 @@ var reverseList = function (head) {
 };
 //刷剑指offer的时候重写的  写成循环式的了
 
-// var reverseList = function (head) {
-// 	let rev = (node) => {
-// 		if (node === null || node.next === null) return node;
-// 		let f = true;
-// 		let p1 = node.next,
-// 			p2 = p1.next;
-// 		if (p2 == null) {
-// 			p1.next = node;
-// 			node.next = null;
-// 			return p1;
-// 		}
-// 		while (p1 !== null && p2 !== null) {
-// 			p1.next = node;
-// 			node = p1;
-// 			p1 = p2;
-// 			if (p2 !== null) p2 = p2.next;
-// 			if (f) {
-// 				node.next.next = null;
-// 				f = false;
-// 			}
-// 		}
-// 		p1.next = node;
-// 		return p1;
-// 	};
-// 	return rev(head);
-// };
+var reverseList = function (head) {
+	let rev = (node) => {
+		if (node === null || node.next === null) return node;
+		let f = true;
+		let p1 = node.next,
+			p2 = p1.next;
+		if (p2 == null) {
+			p1.next = node;
+			node.next = null;
+			return p1;
+		}
+		while (p1 !== null && p2 !== null) {
+			p1.next = node;
+			node = p1;
+			p1 = p2;
+			if (p2 !== null) p2 = p2.next;
+			if (f) {
+				node.next.next = null;
+				f = false;
+			}
+		}
+		p1.next = node;
+		return p1;
+	};
+	return rev(head);
+};
 
 let p0 = new ListNode(1);
 let p1 = new ListNode(2);
