@@ -456,4 +456,28 @@ console.log(B, b, b.type);
 // }
 // pp();
 
-console.log(Math.pow(3, 19));
+// console.log(Math.pow(3, 19));
+
+setTimeout(() => {
+	console.log("setTimeout");
+});
+let p1 = new Promise((resolve) => {
+	console.log("Promise1");
+	resolve("Promise2");
+});
+p1.then((res) => {
+	console.log(res);
+});
+console.log(1);
+
+// a
+// setTimeout;
+// promise1;
+// promise2;
+// 1;
+
+// b
+// Promise1
+// 1
+// Promise2
+// setTimeout
