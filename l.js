@@ -168,19 +168,19 @@ function q(args) {
 // while (new Date() - date < 2000);
 
 // 闭包例子1
-// var f;
-// function f1() {
-// 	var a = 2;
-// 	function f2() {
-// 		console.log(a);
-// 	}
-// 	f = f2;
-// }
-// function f3() {
-// 	f();
-// }
-// f1();
-// f3();
+var f;
+function f1() {
+	var a = 2;
+	function f2() {
+		console.log(a);
+	}
+	f = f2;
+}
+function f3() {
+	f();
+}
+f1();
+f3();
 
 // 闭包例子2 循环
 // for (var i = 0; i < 5; i++) {
@@ -327,11 +327,11 @@ function Base(name) {
 // 来自原型对象的所有属性被所有实例共享
 // 创建子类实例时 无法向父类构造函数传参
 // 代码
-// function A() {}
-// A.prototype = new Base("cat");
-// A.prototype.constructor = A;
-// let a = new A();
-// console.log(A, a, a.type, A.prototype.constructor);
+function A() {}
+A.prototype = new Base("cat");
+A.prototype.constructor = A;
+let a = new A();
+console.log(A, a, a.type, A.prototype.constructor);
 
 //2 构造
 // 特点
@@ -391,7 +391,7 @@ console.log(B, b, b.type);
 // 	Base.call(this, "fff");
 // }
 // let Super = function () {};
-// Super.prototype = Base.prototype;
+// Super.prototype = Base.prototype; //多了这一步，借用super
 // F.prototype = new Super();
 // let f = new F();
 // console.log(F, f, f.type);
@@ -458,17 +458,17 @@ console.log(B, b, b.type);
 
 // console.log(Math.pow(3, 19));
 
-setTimeout(() => {
-	console.log("setTimeout");
-});
-let p1 = new Promise((resolve) => {
-	console.log("Promise1");
-	resolve("Promise2");
-});
-p1.then((res) => {
-	console.log(res);
-});
-console.log(1);
+// setTimeout(() => {
+// 	console.log("setTimeout");
+// });
+// let p1 = new Promise((resolve) => {
+// 	console.log("Promise1");
+// 	resolve("Promise2");
+// });
+// p1.then((res) => {
+// 	console.log(res);
+// });
+// console.log(1);
 
 // a
 // setTimeout;
