@@ -481,3 +481,4 @@ console.log(B, b, b.type);
 // 1
 // Promise2
 // setTimeout
+console.log("abc".reverse());
