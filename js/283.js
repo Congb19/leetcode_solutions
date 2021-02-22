@@ -2,32 +2,32 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var moveZeroes = function(nums) {
-    //Ë¼Â·1 Ïëµ½Ã°ÅÝ
-    // for (let i=0;i<nums.length;i++) {
-    //     for (let j=0;j<nums.length-i-1; j++) {
-    //         if (nums[j]===0) {
-    //             let tmp=nums[j];
-    //             nums[j]=nums[j+1];
-    //             nums[j+1]=tmp;
-    //         }
-    //     }
-    // }
-    //Ë¼Â·2 ÉêÇëÒ»¸ö¿Õ¼ä´æ·ÇÁã£¬×îºóÔÙµ¼»ØÀ´
-    let tmp = new Array();
-    for (let i=0;i<nums.length;i++) {
-        if (nums[i]!==0) {
-            tmp.push(nums[i]);
-        }
+var moveZeroes = function (nums) {
+  //Ë¼Â·1 ï¿½ëµ½Ã°ï¿½ï¿½
+  // for (let i=0;i<nums.length;i++) {
+  //     for (let j=0;j<nums.length-i-1; j++) {
+  //         if (nums[j]===0) {
+  //             let tmp=nums[j];
+  //             nums[j]=nums[j+1];
+  //             nums[j+1]=tmp;
+  //         }
+  //     }
+  // }
+  //Ë¼Â·2 ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½
+  let tmp = new Array();
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      tmp.push(nums[i]);
     }
-    // console.log(tmp);
-    for (let i=0;i<nums.length;i++) {
-        if (i<tmp.length) {
-            nums[i]=tmp[i];
-        }
-        else nums[i]=0;
-    }
-    // console.log(nums);
+  }
+  // console.log(tmp);
+  for (let i = 0; i < nums.length; i++) {
+    if (i < tmp.length) {
+      nums[i] = tmp[i];
+    } else nums[i] = 0;
+  }
+  // console.log(nums);
 };
-let nums = [0,1,0,3,12], k=2;
+let nums = [0, 1, 0, 3, 12],
+  k = 2;
 console.log(moveZeroes(nums));

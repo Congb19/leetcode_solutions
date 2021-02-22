@@ -3,12 +3,12 @@
  * @param {number[]} nums
  */
 var KthLargest = function (k, nums) {
-	this.t1 = [];
-	this.t2 = [];
-	this.k = k;
-	for (let i = 0; i < nums.length; i++) {
-		this.add(nums[i]);
-	}
+  this.t1 = [];
+  this.t2 = [];
+  this.k = k;
+  for (let i = 0; i < nums.length; i++) {
+    this.add(nums[i]);
+  }
 };
 
 /**
@@ -16,14 +16,14 @@ var KthLargest = function (k, nums) {
  * @return {number}
  */
 KthLargest.prototype.add = function (val) {
-	while (this.t1.length > 0 && val < this.t1[this.t1.length - 1]) {
-		this.t2.push(this.t1.pop());
-	}
-	this.t1.push(val);
-	while (this.t2.length > 0) {
-		this.t1.push(this.t2.pop());
-	}
-	return this.t1[this.t1.length - this.k];
+  while (this.t1.length > 0 && val < this.t1[this.t1.length - 1]) {
+    this.t2.push(this.t1.pop());
+  }
+  this.t1.push(val);
+  while (this.t2.length > 0) {
+    this.t1.push(this.t2.pop());
+  }
+  return this.t1[this.t1.length - this.k];
 };
 
 /**

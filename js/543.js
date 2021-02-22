@@ -9,19 +9,19 @@
  * @param {TreeNode} root
  * @return {number}
  */
-// ¿ÉÒÔ½«¶þ²æÊ÷µÄÖ±¾¶×ª»»Îª£º¶þ²æÊ÷µÄ Ã¿¸ö½ÚµãµÄ×óÓÒ×ÓÊ÷µÄ¸ß¶ÈºÍ µÄ×î´óÖµ¡£
+// ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¿ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß¶Èºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½
 
-var diameterOfBinaryTree = function(root) {
-    let result=0;
-    deep(root);
-    return result;
+var diameterOfBinaryTree = function (root) {
+  let result = 0;
+  deep(root);
+  return result;
 
-    function deep(root){
-        if(!root)return -1;
-        let left=root.left?deep(root.left)+1:0;
-        let right=root.right?deep(root.right)+1:0;
+  function deep(root) {
+    if (!root) return -1;
+    let left = root.left ? deep(root.left) + 1 : 0;
+    let right = root.right ? deep(root.right) + 1 : 0;
 
-        result=Math.max(left+right,result);
-        return Math.max(left,right);
-    }
+    result = Math.max(left + right, result);
+    return Math.max(left, right);
+  }
 };

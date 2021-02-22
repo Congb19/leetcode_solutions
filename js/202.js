@@ -3,57 +3,57 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-	//思路1 集合解法
-	// let seen = new Array();
-	// seen[0] = 1;
-	// let flag = true;
-	// while (flag) {
-	// 	seen[seen.length] = n;
-	// 	//go
-	// 	let sum = 0;
-	// 	while (n > 0) {
-	// 		sum += (n % 10) * (n % 10);
-	// 		n = Math.floor(n / 10);
-	// 	}
-	// 	n = sum;
-	// 	//test
-	// 	for (let i = 0; i < seen.length; i++) {
-	// 		if (seen[i] === n) {
-	// 			flag = false;
-	// 		}
-	// 	}
-	// }
-	// return n === 1;
-	//思路2 快慢指针
-	let p1 = n,
-		p2 = n;
-	while (p1 !== 1 && p2 !== 1) {
-		let sum = 0;
-		let n1 = p1,
-			n2 = p2;
-		while (n1 > 0) {
-			sum += (n1 % 10) * (n1 % 10);
-			n1 = Math.floor(n1 / 10);
-		}
-		p1 = sum;
-		sum = 0;
-		while (n2 > 0) {
-			sum += (n2 % 10) * (n2 % 10);
-			n2 = Math.floor(n2 / 10);
-		}
-		p2 = sum;
-		n2 = p2;
-		sum = 0;
-		while (n2 > 0) {
-			sum += (n2 % 10) * (n2 % 10);
-			n2 = Math.floor(n2 / 10);
-		}
-		p2 = sum;
-		// console.log(p1, p2);
-		if (p1 === p2) break;
-	}
-	if (p1 === 1 || p2 === 1) return true;
-	else return false;
+  //思路1 锟斤拷锟较解法
+  // let seen = new Array();
+  // seen[0] = 1;
+  // let flag = true;
+  // while (flag) {
+  // 	seen[seen.length] = n;
+  // 	//go
+  // 	let sum = 0;
+  // 	while (n > 0) {
+  // 		sum += (n % 10) * (n % 10);
+  // 		n = Math.floor(n / 10);
+  // 	}
+  // 	n = sum;
+  // 	//test
+  // 	for (let i = 0; i < seen.length; i++) {
+  // 		if (seen[i] === n) {
+  // 			flag = false;
+  // 		}
+  // 	}
+  // }
+  // return n === 1;
+  //思路2 锟斤拷锟斤拷指锟斤拷
+  let p1 = n,
+    p2 = n;
+  while (p1 !== 1 && p2 !== 1) {
+    let sum = 0;
+    let n1 = p1,
+      n2 = p2;
+    while (n1 > 0) {
+      sum += (n1 % 10) * (n1 % 10);
+      n1 = Math.floor(n1 / 10);
+    }
+    p1 = sum;
+    sum = 0;
+    while (n2 > 0) {
+      sum += (n2 % 10) * (n2 % 10);
+      n2 = Math.floor(n2 / 10);
+    }
+    p2 = sum;
+    n2 = p2;
+    sum = 0;
+    while (n2 > 0) {
+      sum += (n2 % 10) * (n2 % 10);
+      n2 = Math.floor(n2 / 10);
+    }
+    p2 = sum;
+    // console.log(p1, p2);
+    if (p1 === p2) break;
+  }
+  if (p1 === 1 || p2 === 1) return true;
+  else return false;
 };
 
 // class Solution:

@@ -9,14 +9,14 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
-    let res=[...Array()];
-    let dd=(p)=> {
-        if (p===null) return;
-        dd(p.left);
-        res.push(p.val);
-        dd(p.right);
-    }
-    dd(root);
-    return res;
+var inorderTraversal = function (root) {
+  let res = [...Array()];
+  let dd = (p) => {
+    if (p === null) return;
+    dd(p.left);
+    res.push(p.val);
+    dd(p.right);
+  };
+  dd(root);
+  return res;
 };

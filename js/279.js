@@ -2,18 +2,20 @@
  * @param {number} n
  * @return {number}
  */
-var numSquares = function(n) {
-    let dp = [...Array(n+1)].map(_=> 0); // Êý×é³¤¶ÈÎªn+1£¬Öµ¾ùÎª0
-    // console.log(dp);
-    for (let i = 1; i <= n; i++) {
-        dp[i] = i; // ×î»µµÄÇé¿ö¾ÍÊÇÃ¿´Î+1
-        for (let j = 1; i - j * j >= 0; j++) {
-            dp[i] = Math.min(dp[i], dp[i - j * j] + 1); // ¶¯Ì¬×ªÒÆ·½³Ì
-        }
+var numSquares = function (n) {
+  let dp = [...Array(n + 1)].map((_) => 0); // ï¿½ï¿½ï¿½é³¤ï¿½ï¿½Îªn+1ï¿½ï¿½Öµï¿½ï¿½Îª0
+  // console.log(dp);
+  for (let i = 1; i <= n; i++) {
+    dp[i] = i; // ï¿½î»µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½+1
+    for (let j = 1; i - j * j >= 0; j++) {
+      dp[i] = Math.min(dp[i], dp[i - j * j] + 1); // ï¿½ï¿½Ì¬×ªï¿½Æ·ï¿½ï¿½ï¿½
     }
-    return dp[n];
+  }
+  return dp[n];
 };
 
-let nums = [7,1,5,3,6,4], k=12;
-let s= "nihao", t="haoni";
+let nums = [7, 1, 5, 3, 6, 4],
+  k = 12;
+let s = "nihao",
+  t = "haoni";
 console.log(numSquares(k));

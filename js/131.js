@@ -2,40 +2,40 @@
  * @param {string} s
  * @return {string[][]}
  */
-var partition = function(s) {
-    let n=s.length;
-    let dp=[...Array(n)].map(()=>[...Array(n)].map(()=>false));
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j <= i; j++) {
-            if ((i-j <= 1 || dp[i - 1][j + 1]) && s[i] === s[j]) dp[i][j]=true;
-        }
+var partition = function (s) {
+  let n = s.length;
+  let dp = [...Array(n)].map(() => [...Array(n)].map(() => false));
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j <= i; j++) {
+      if ((i - j <= 1 || dp[i - 1][j + 1]) && s[i] === s[j]) dp[i][j] = true;
     }
-    console.log(dp);
+  }
+  console.log(dp);
 
-    let res=[...Array()];
-    let tmp=[...Array()];
+  let res = [...Array()];
+  let tmp = [...Array()];
 
-    let dfs = (i,n)=>{
-        if (i>=n) {
-            // console.log("Chong", tmp)
-            res.push([...tmp]);
-        }
-        for (let j = i; j < n; j++) {
-            // console.log(i,j , dp[j][i])
-            if (dp[j][i]) {
-                tmp.push(s.substr(i, j-i+1)) ;
-                dfs(j+1, n);
-                tmp.pop();
-                // while (tmp.length) tmp.pop();
-            }
-        }
+  let dfs = (i, n) => {
+    if (i >= n) {
+      // console.log("Chong", tmp)
+      res.push([...tmp]);
     }
-    dfs(0,n);
+    for (let j = i; j < n; j++) {
+      // console.log(i,j , dp[j][i])
+      if (dp[j][i]) {
+        tmp.push(s.substr(i, j - i + 1));
+        dfs(j + 1, n);
+        tmp.pop();
+        // while (tmp.length) tmp.pop();
+      }
+    }
+  };
+  dfs(0, n);
 
-    return res;
+  return res;
 };
 
-let s="abbab";
+let s = "abbab";
 console.log(partition(s));
 // class Solution {
 //     public List<List<String>> partition(String s) {

@@ -3,103 +3,111 @@
  * @return {number}
  */
 function HashMap() {
-    this.map = {};
+  this.map = {};
 }
 HashMap.prototype = {
-    put: function (key, value) {// ÏòMapÖÐÔö¼ÓÔªËØ£¨key, value)
-        this.map[key] = value;
-    },
-    get: function (key) { //»ñÈ¡Ö¸¶¨KeyµÄÔªËØÖµValue£¬Ê§°Ü·µ»ØNull
-        if (this.map.hasOwnProperty(key)) {
-            return this.map[key];
-        }
-        return null;
-    },
-    set: function (key, value) {
-        if (this.map.hasOwnProperty(key)) {
-            this.map[key]=value;
-        }
-        else {
-            this.put(key, value);
-        }
-    },
-    remove: function (key) { // É¾³ýÖ¸¶¨KeyµÄÔªËØ£¬³É¹¦·µ»ØTrue£¬Ê§°Ü·µ»ØFalse
-        if (this.map.hasOwnProperty(key)) {
-            return delete this.map[key];
-        }
-        return false;
-    },
-    removeAll: function () {  //Çå¿ÕHashMapËùÓÐÔªËØ
-        this.map = {};
-    },
-    keySet: function () { //»ñÈ¡MapÖÐËùÓÐKEYµÄÊý×é£¨Array£©
-        var _keys = [];
-        for (var i in this.map) {
-            _keys.push(i);
-        }
-        return _keys;
-    },
-    show: function () {
-        console.log(this.map);
+  put: function (key, value) {
+    // ï¿½ï¿½Mapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½key, value)
+    this.map[key] = value;
+  },
+  get: function (key) {
+    //ï¿½ï¿½È¡Ö¸ï¿½ï¿½Keyï¿½ï¿½Ôªï¿½ï¿½ÖµValueï¿½ï¿½Ê§ï¿½Ü·ï¿½ï¿½ï¿½Null
+    if (this.map.hasOwnProperty(key)) {
+      return this.map[key];
     }
+    return null;
+  },
+  set: function (key, value) {
+    if (this.map.hasOwnProperty(key)) {
+      this.map[key] = value;
+    } else {
+      this.put(key, value);
+    }
+  },
+  remove: function (key) {
+    // É¾ï¿½ï¿½Ö¸ï¿½ï¿½Keyï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½Trueï¿½ï¿½Ê§ï¿½Ü·ï¿½ï¿½ï¿½False
+    if (this.map.hasOwnProperty(key)) {
+      return delete this.map[key];
+    }
+    return false;
+  },
+  removeAll: function () {
+    //ï¿½ï¿½ï¿½HashMapï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+    this.map = {};
+  },
+  keySet: function () {
+    //ï¿½ï¿½È¡Mapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½KEYï¿½ï¿½ï¿½ï¿½ï¿½é£¨Arrayï¿½ï¿½
+    var _keys = [];
+    for (var i in this.map) {
+      _keys.push(i);
+    }
+    return _keys;
+  },
+  show: function () {
+    console.log(this.map);
+  },
 };
 HashMap.prototype.constructor = HashMap;
 
-var longestPalindrome = function(s) {
-    let res=0;
-    if (s.length===0) return 0;
-    let n=s.length;
+var longestPalindrome = function (s) {
+  let res = 0;
+  if (s.length === 0) return 0;
+  let n = s.length;
 
-    // hashÌ°ÐÄ
-    // let hash=new HashMap();
-    // for (let i = 0; i < n; i++) {
-    //     if (hash.get(s.charAt(i)) !== null) {
-    //         // console.log(1);
-    //         hash.set(s.charAt(i), hash.get(s.charAt(i))+1);
-    //     }
-    //     else {
-    //         // console.log(2);
-    //         hash.set(s.charAt(i), 1);
-    //     }
-    // }
-    // // hash.show();
-    // let keys = hash.keySet();
-    // let maxj = 0;
-    // keys.forEach(function (value, index, array) {
-    //     if (hash.get(value)%2===1) maxj=maxj>hash.get(value)?maxj:hash.get(value);
-    // });
-    // keys.forEach(function (value, index, array) {
-    //     if (hash.get(value)%2===0) res+=hash.get(value);
-    //     else res+=Math.floor(hash.get(value)/2)*2;
-    // });
-    // if (maxj>0) res++;
+  // hashÌ°ï¿½ï¿½
+  // let hash=new HashMap();
+  // for (let i = 0; i < n; i++) {
+  //     if (hash.get(s.charAt(i)) !== null) {
+  //         // console.log(1);
+  //         hash.set(s.charAt(i), hash.get(s.charAt(i))+1);
+  //     }
+  //     else {
+  //         // console.log(2);
+  //         hash.set(s.charAt(i), 1);
+  //     }
+  // }
+  // // hash.show();
+  // let keys = hash.keySet();
+  // let maxj = 0;
+  // keys.forEach(function (value, index, array) {
+  //     if (hash.get(value)%2===1) maxj=maxj>hash.get(value)?maxj:hash.get(value);
+  // });
+  // keys.forEach(function (value, index, array) {
+  //     if (hash.get(value)%2===0) res+=hash.get(value);
+  //     else res+=Math.floor(hash.get(value)/2)*2;
+  // });
+  // if (maxj>0) res++;
 
-    //Êý×éÄ£ÄâhashÌ°ÐÄ
-    let hash = [...Array(130)].map(()=>0);
-    for (let i = 0; i < n; i++) {
-        hash[s.charCodeAt(i)]++;
+  //ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½hashÌ°ï¿½ï¿½
+  let hash = [...Array(130)].map(() => 0);
+  for (let i = 0; i < n; i++) {
+    hash[s.charCodeAt(i)]++;
+  }
+  let maxj = 0,
+    maxjid = 0;
+  hash.forEach(function (value, index, array) {
+    if (value % 2 === 1) {
+      if (maxj < value) {
+        maxj = value;
+        maxjid = index;
+      }
     }
-    let maxj=0, maxjid=0;
+  });
+  if (maxj === 0) {
     hash.forEach(function (value, index, array) {
-        if (value%2===1) {
-            if (maxj < value) {
-                maxj=value;
-                maxjid=index;
-            }
-        }
+      res += value;
     });
-    if (maxj===0) {
-        hash.forEach(function (value, index, array) {
-            res+=value;
-        });
-    }
-    else {
-        hash.forEach(function (value, index, array) {
-            if (value % 2 === 0) res+=value;
-            else res+=Math.floor(value/2)*2;
-        });
-        res+=1;
-    }
-    return res;
+  } else {
+    hash.forEach(function (value, index, array) {
+      if (value % 2 === 0) res += value;
+      else res += Math.floor(value / 2) * 2;
+    });
+    res += 1;
+  }
+  return res;
 };
-console.log(longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
+console.log(
+  longestPalindrome(
+    "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"
+  )
+);

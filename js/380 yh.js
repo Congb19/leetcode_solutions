@@ -1,13 +1,13 @@
 /**
  * Initialize your data structure here.
  */
-var RandomizedSet = function() {
-    // let self = {
-    //     name: "self",
-    //     length: 0,
-    //     "1": 2
-    // }
-    self=[...Array()];
+var RandomizedSet = function () {
+  // let self = {
+  //     name: "self",
+  //     length: 0,
+  //     "1": 2
+  // }
+  self = [...Array()];
 };
 
 /**
@@ -15,12 +15,12 @@ var RandomizedSet = function() {
  * @param {number} val
  * @return {boolean}
  */
-RandomizedSet.prototype.insert = function(val) {
-    for (let i=0;i<self.length;i++) {
-        if (self[i]===val) return false;
-    }
-    self.push(val);
-    return true;
+RandomizedSet.prototype.insert = function (val) {
+  for (let i = 0; i < self.length; i++) {
+    if (self[i] === val) return false;
+  }
+  self.push(val);
+  return true;
 };
 
 /**
@@ -28,32 +28,31 @@ RandomizedSet.prototype.insert = function(val) {
  * @param {number} val
  * @return {boolean}
  */
-RandomizedSet.prototype.remove = function(val) {
-    for (let i=0;i<self.length;i++) {
-        if (self[i]===val) {
-            self.splice(i,1);
-            return true;
-        }
+RandomizedSet.prototype.remove = function (val) {
+  for (let i = 0; i < self.length; i++) {
+    if (self[i] === val) {
+      self.splice(i, 1);
+      return true;
     }
-    return false;
+  }
+  return false;
 };
 
 /**
  * Get a random element from the set.
  * @return {number}
  */
-RandomizedSet.prototype.getRandom = function() {
-    let p=Math.floor(Math.random()*self.length)%self.length;
-    // console.log(p);
-    return self[p];
+RandomizedSet.prototype.getRandom = function () {
+  let p = Math.floor(Math.random() * self.length) % self.length;
+  // console.log(p);
+  return self[p];
 };
 
-
 // Your RandomizedSet object will be instantiated and called as such:
-var obj = new RandomizedSet()
-var param_1 = obj.insert(2)
-var param_1 = obj.insert(3)
-var param_1 = obj.insert(4)
-var param_2 = obj.remove(2)
-var param_3 = obj.getRandom()
+var obj = new RandomizedSet();
+var param_1 = obj.insert(2);
+var param_1 = obj.insert(3);
+var param_1 = obj.insert(4);
+var param_2 = obj.remove(2);
+var param_3 = obj.getRandom();
 console.log(param_3);

@@ -2,10 +2,10 @@
  * @param {number} capacity
  */
 var LRUCache = function (capacity) {
-	this.max = capacity;
-	this.minkey = 0; //如果要删，删哪个
-	this.map = new Map();
-	this.use = new Map(); //删除的优先级
+  this.max = capacity;
+  this.minkey = 0; //如果要删，删哪个
+  this.map = new Map();
+  this.use = new Map(); //删除的优先级
 };
 
 /**
@@ -13,29 +13,29 @@ var LRUCache = function (capacity) {
  * @return {number}
  */
 LRUCache.prototype.get = function (key) {
-	// console.log("to get", key);
-	if (this.map.has(key)) {
-		for (let item of this.use.entries()) {
-			this.use.set(item[0], item[1] + 1);
-		}
-		this.use.set(key, 0);
-		this.update();
-		// console.log("getted");
-		return this.map.get(key);
-	} else {
-		// console.log("nogetted");
-		return -1;
-	}
+  // console.log("to get", key);
+  if (this.map.has(key)) {
+    for (let item of this.use.entries()) {
+      this.use.set(item[0], item[1] + 1);
+    }
+    this.use.set(key, 0);
+    this.update();
+    // console.log("getted");
+    return this.map.get(key);
+  } else {
+    // console.log("nogetted");
+    return -1;
+  }
 };
 //update 更新minkey
 LRUCache.prototype.update = function () {
-	// console.log("before update", this.minkey);
-	for (let item of this.use.entries()) {
-		if (!this.use.has(this.minkey) || this.use.get(this.minkey) < item[1]) {
-			this.minkey = item[0];
-		}
-	}
-	// console.log("after updated", this.minkey);
+  // console.log("before update", this.minkey);
+  for (let item of this.use.entries()) {
+    if (!this.use.has(this.minkey) || this.use.get(this.minkey) < item[1]) {
+      this.minkey = item[0];
+    }
+  }
+  // console.log("after updated", this.minkey);
 };
 /**
  * @param {number} key
@@ -43,21 +43,21 @@ LRUCache.prototype.update = function () {
  * @return {void}
  */
 LRUCache.prototype.put = function (key, value) {
-	// console.log("to put", key);
-	this.update();
-	if (this.map.size < this.max) {
-	} else if (this.map.has(key)) {
-	} else {
-		// console.log("delete! ", this.minkey);
-		this.map.delete(this.minkey);
-		this.use.delete(this.minkey);
-	}
-	for (let item of this.use.entries()) {
-		this.use.set(item[0], item[1] + 1);
-	}
-	this.use.set(key, 0);
-	this.map.set(key, value);
-	// console.log("putted");
+  // console.log("to put", key);
+  this.update();
+  if (this.map.size < this.max) {
+  } else if (this.map.has(key)) {
+  } else {
+    // console.log("delete! ", this.minkey);
+    this.map.delete(this.minkey);
+    this.use.delete(this.minkey);
+  }
+  for (let item of this.use.entries()) {
+    this.use.set(item[0], item[1] + 1);
+  }
+  this.use.set(key, 0);
+  this.map.set(key, value);
+  // console.log("putted");
 };
 
 /**

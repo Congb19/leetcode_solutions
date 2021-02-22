@@ -3,36 +3,37 @@
  * @param {number[]} cost
  * @return {number}
  */
-var canCompleteCircuit = function(gas, cost) {
-    // Èç¹ûAÕ¾²»ÄÜµ½BÕ¾£¬ÄÇÃ´A£¬BÖ®¼äµ½ÈÎºÎÒ»¸öÕ¾¶¼²»ÄÜµ½BÕ¾£¬ËùÒÔ´ÓBÕ¾¼ÌÐø¿ªÊ¼¾ÍºÃÁË
-    let n=gas.length;
-    let rest=[...Array(n)].map(()=>0);
-    for (let i = 0; i < n; i++) {
-        rest[i]=gas[i]-cost[i];
-    }
-    // console.log(rest);
-    let g=0;
-    for (let i = 0; i < n; i++) {
-        let flag=true;
-        if (rest[i]>=0) {
-            let p=0;
-            for (let j=i;j<i+n;j++) {
-                g+=rest[(j%n)];
-                if (g<0) {
-                    flag=false;
-                    p=j;
-                    break;
-                }
-            }
-            if (flag) return i;
-            else {
-                i=p;
-                g=0;
-            }
+var canCompleteCircuit = function (gas, cost) {
+  // ï¿½ï¿½ï¿½AÕ¾ï¿½ï¿½ï¿½Üµï¿½BÕ¾ï¿½ï¿½ï¿½ï¿½Ã´Aï¿½ï¿½BÖ®ï¿½äµ½ï¿½Îºï¿½Ò»ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½BÕ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½BÕ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Íºï¿½ï¿½ï¿½
+  let n = gas.length;
+  let rest = [...Array(n)].map(() => 0);
+  for (let i = 0; i < n; i++) {
+    rest[i] = gas[i] - cost[i];
+  }
+  // console.log(rest);
+  let g = 0;
+  for (let i = 0; i < n; i++) {
+    let flag = true;
+    if (rest[i] >= 0) {
+      let p = 0;
+      for (let j = i; j < i + n; j++) {
+        g += rest[j % n];
+        if (g < 0) {
+          flag = false;
+          p = j;
+          break;
         }
+      }
+      if (flag) return i;
+      else {
+        i = p;
+        g = 0;
+      }
     }
-    return -1;
+  }
+  return -1;
 };
 
-let gas=[1,2,3,4,5,5,70], cost=[2,3,4,3,9,6,2];
-console.log(canCompleteCircuit(gas,cost));
+let gas = [1, 2, 3, 4, 5, 5, 70],
+  cost = [2, 3, 4, 3, 9, 6, 2];
+console.log(canCompleteCircuit(gas, cost));
