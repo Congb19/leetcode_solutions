@@ -10,14 +10,14 @@ var flipAndInvertImage = function (A) {
     A[i].forEach((value, index) => {
       if (value == 1) A[i][index] = 0;
       else A[i][index] = 1;
-    })
+    });
   }
   return A;
 };
 console.log(
-	flipAndInvertImage([
-		[1, 1, 0],
-		[1, 0, 1],
-		[0, 0, 0],
-	])
+  flipAndInvertImage([
+    [1, 1, 0],
+    [1, 0, 1],
+    [0, 0, 0],
+  ])
 );

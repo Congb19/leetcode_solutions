@@ -6,7 +6,8 @@
 var searchMatrix = function (matrix, target) {
   let r = matrix.length;
   let c = matrix[0].length;
-  let i = r - 1, j = 0;
+  let i = r - 1,
+    j = 0;
   if (matrix[i][j] == target) return true;
   while (i >= 0 && matrix[i][j] > target) {
     if (matrix[i][j] == target) return true;
