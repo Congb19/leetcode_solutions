@@ -9,7 +9,7 @@ var findMin = function (nums) {
   // l~m, m+1~r
   let l = 0, r = nums.length - 1, m = Math.floor((l + r) / 2);
   while (l < r && nums[l] > nums[r]) {
-    console.log(l, m, r);
+    // console.log(l, m, r);
     l = m + 1;
     m = Math.floor((l + r) / 2);
   }
